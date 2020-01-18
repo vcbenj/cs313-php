@@ -25,7 +25,9 @@
         </blockquote>
  </div>
  <?php
- echo "My first PHP script!";
- ?>
+$t=time();
+echo($t . "<br>");
+echo(date("Y-m-d",$t));
+?>
   </body>
 </html>
