@@ -32,3 +32,8 @@ body {
 
     text-align: center;
 }
+
+#php:hover {
+    color: red;
+    font-weight: bold;
+}

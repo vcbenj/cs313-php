@@ -25,6 +25,7 @@
         </blockquote>
  </div>
  <?php
+ echo("<div id = 'php'> <h3> Todays Time is: </h3>"
 $t=time();
 echo($t . "<br>");
 echo(date("Y-m-d",$t));
