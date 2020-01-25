@@ -100,9 +100,6 @@ function setList(item, index) {
     List[index] = item;
 }
 function addList(str) {
-  <?php
-
-    ?>
   setList(str, i);
   List = getShopingList();
   var j;
