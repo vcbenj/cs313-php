@@ -38,7 +38,10 @@ body {
   <th> Description  
   </tr>
   <tr>
-  <td>  <input type="button" name="item_0" value="Add to Cart" id ="item_0" onclick="<?php addList(); ?>"> 
+  <td>  <input type="button" name="item_0" value="Add to Cart" id ="item_0" onclick="
+  <?php 
+  addList(); 
+  ?>"> 
   <th> Laptop Dell 
   <th> $499
   <th> Dell XPS
