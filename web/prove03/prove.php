@@ -27,7 +27,6 @@ body {
 </header>
 
 <div>
- <form action = "assign11.php" method = "get">
  
  
   
@@ -67,7 +66,7 @@ body {
 
 
 <br>
-  </form>
+
   <input type = "button" id="validate" value="Submit"> 
   <input type="button" value="Reset" id="reset">
 
