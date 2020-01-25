@@ -40,7 +40,7 @@ body {
   <tr>
     <?php
       function addList($str, $i) {
-        $list[$i] = $str
+        $list[$i] = $str;
       }
     ?>
   <td>  <input type="button" name="item_0" value="Add to Cart" id ="item_0" onclick="addList('Dell')"> 
