@@ -39,8 +39,12 @@ body {
   </tr>
   <tr>
     <?php
-      function addList($str, $i) {
+      function add_List($str, $i) {
         $list[$i] = $str;
+      }
+
+      if (isset($_GET['hello'])) {
+        add_List();
       }
     ?>
   <td>  <input type="button" name="item_0" value="Add to Cart" id ="item_0" onclick="addList('Dell')"> 
@@ -73,6 +77,7 @@ body {
 <script type="text/javascript">
 var total;
 var List;
+var hello;
 var i = 0;
 window.onload = function() {
     document.forms[0].elements[0].focus();
@@ -100,13 +105,8 @@ function setList(item, index) {
 }
 function addList(str) {
   setList(str, i);
-  List = getShopingList();
-  var j;
-for (j = 0; j < List.length; j++) {
-    console.log("Message: "+ List[j] );
-}
-console.log("List is this long: "+ List.length );
-  
+  hello = true;
+  <a href='prove.php?hello=true?'>Run PHP Function</a>
 }
 
   function clear() {
