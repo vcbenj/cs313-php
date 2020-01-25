@@ -38,7 +38,7 @@ body {
   <th> Description  
   </tr>
   <tr>
-  <td>  <input type="button" name="item_0" value="Add to Cart" id ="item_0" onclick="addList('Dell')"> 
+  <td>  <input type="button" name="item_0" value="Add to Cart" id ="item_0" onclick="<?phpaddList()?>"> 
   <th> Laptop Dell 
   <th> $499
   <th> Dell XPS
@@ -65,9 +65,9 @@ body {
         echo $list[0];
       }
 
-      if (isset($_GET['hello'])) {
-        add_List();
-      }
+     # if (isset($_GET['hello'])) {
+      #  add_List();
+     # }
     ?>
 <br>
 
@@ -111,7 +111,7 @@ function addList(str) {
   }
   
   function submit() {
-    
+
   }
 
 </script>  
