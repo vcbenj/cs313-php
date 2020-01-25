@@ -106,7 +106,7 @@ function setList(item, index) {
 function addList(str) {
   setList(str, i);
   hello = true;
-  <a href='prove.php?hello=true?'>Run PHP Function</a>
+  document.write("<a href='prove.php?hello=true?'>Run PHP Function</a>");
 }
 
   function clear() {
