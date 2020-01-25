@@ -80,10 +80,7 @@ var List;
 var hello;
 var i = 0;
 window.onload = function() {
-    document.forms[0].elements[0].focus();
     List = [];
-   document.getElementById("validate").onclick = validate;
-   document.getElementById("reset").onclick = clear;
    
   };
   
@@ -114,15 +111,8 @@ function addList(str) {
   }
   
   function submit() {
-  document.forms[0].elements[0].focus();
-  document.forms[0].submit();
-  console.log("WORKED");
+    
   }
-  
-var colors = [ "black", "blue","red","green", "yellow"];
-
-var colorIndex = 0;
-
 
 </script>  
   
