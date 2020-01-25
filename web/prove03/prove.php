@@ -38,16 +38,6 @@ body {
   <th> Description  
   </tr>
   <tr>
-    <?php
-      function add_List() {
-        $list[0] = "Dell";
-        echo $list[0];
-      }
-
-      if (isset($_GET['hello'])) {
-        add_List();
-      }
-    ?>
   <td>  <input type="button" name="item_0" value="Add to Cart" id ="item_0" onclick="addList('Dell')"> 
   <th> Laptop Dell 
   <th> $499
@@ -69,7 +59,16 @@ body {
   <th> Macbook Pro  
 </table>
 
+<?php
+      function add_List() {
+        $list[0] = "Dell";
+        echo $list[0];
+      }
 
+      if (isset($_GET['hello'])) {
+        add_List();
+      }
+    ?>
 <br>
 
   <input type = "button" id="validate" value="Submit"> 
