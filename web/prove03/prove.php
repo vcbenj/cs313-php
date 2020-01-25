@@ -39,8 +39,9 @@ body {
   </tr>
   <tr>
     <?php
-      function add_List($str, $i) {
-        $list[$i] = $str;
+      function add_List() {
+        $list[0] = "Dell";
+        echo $list[0];
       }
 
       if (isset($_GET['hello'])) {
