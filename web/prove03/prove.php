@@ -36,7 +36,7 @@ body {
 </header>
 
 <div>
-<form action = "<?php $_PHP_SELF ?>" method = "GET">
+<form action = "assign11.php" method = "get">
  
   
 <table>
@@ -116,7 +116,9 @@ function addList(str) {
   setList(str, i);
   i++;
   console.log("My list is " + List);
+  document.getElementById('stuff').innerHTML += "<textarea name='myList'>"
   document.getElementById('stuff').innerHTML += List;
+  document.getElementById('stuff').innerHTML += "</textarea>";
 
 }
 
