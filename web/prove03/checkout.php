@@ -37,8 +37,10 @@ body {
   <th> Shopping Items
 </tr>
 <?php
+$index = 0;
 foreach($list as $value){
-        echo "<td> <input type='checkbox'><th> ".$value . "<br><tr>";
+        echo "<td> <input type='checkbox' name='". $index . "' onclick='removeList()'><th> ".$value . "<br><tr>";
+        $index += $index;
     }
 ?>
 </table>
@@ -47,7 +49,9 @@ foreach($list as $value){
   <input type="button" value="Reset" id="reset">
   <button onclick="window.location.href = 'checkout.php';">CheckOut</button>
 <script type="text/javascript">
+function removeList() {
 
+}
 
 </script>  
   
