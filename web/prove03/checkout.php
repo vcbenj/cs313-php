@@ -4,6 +4,7 @@ session_start();
 
 
     $List = $_GET["stuff"];
+    echo $List;
 ?>
 <!DOCTYPE html>
 <html>
