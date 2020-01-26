@@ -5,7 +5,7 @@ session_start();
 
     $List = $_GET["myList"];
     $list = explode(",", $List);
-    echo <"<br>";
+    echo "<br>";
     foreach($list as $value){
         echo $value . "<br>";
     }
