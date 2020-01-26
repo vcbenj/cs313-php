@@ -6,9 +6,7 @@ session_start();
     $List = $_GET["myList"];
     $list = explode(",", $List);
     echo "<br>";
-    foreach($list as $value){
-        echo $value . "<br>";
-    }
+    
 ?>
 <!DOCTYPE html>
 <html>
@@ -32,23 +30,12 @@ body {
 
 <div>
 <form action = "assign11.php" method = "get">
- 
-  
-
 
 <?php
-      function add_List() {
-        $list[0] = "Dell";
-        echo $list[0];
-      }
-
-     # if (isset($_GET['hello'])) {
-      #  add_List();
-     # }
-    ?>
-<div id="stuff">
-     </div>
-<br>
+foreach($list as $value){
+        echo "<input type='checkbox'> ".$value . "<br>";
+    }
+?>
      </form>
   <input type = "button" id="validate" value="Submit"> 
   <input type="button" value="Reset" id="reset">
