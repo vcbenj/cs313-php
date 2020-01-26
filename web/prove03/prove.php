@@ -104,6 +104,8 @@ function setList(item, index) {
 }
 function addList(str) {
   setList(str, i);
+  i++;
+  console.log("My list is " + List);
   hello = true;
   document.getElementById('stuff').innerHTML += '<?php add_List(); ?>';
 }
