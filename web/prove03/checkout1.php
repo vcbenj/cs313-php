@@ -22,16 +22,19 @@ echo "NEW STUFF <br>";
 foreach($_SESSION['shp'] as $value) {
     $j = 0;
     $newList[$j] = $value;
-    $j++;
+    
     foreach($places as $place) {
         if ($value == $place) {
             echo "Hello <br>";
             $ind = array_search($value);
+            echo $ind . "<br>";
             //$ind -= 1;
-            array_splice($newList, 1, $ind);
+            array_splice($newList, 1, $j);
             
         }
+    
     }
+    $j++;
 }
 
 
