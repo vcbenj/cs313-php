@@ -5,6 +5,8 @@ session_start();
 
     $List = $_GET["myList"];
     echo "THIS IS " + $List;
+    $item_2 = $_GET["item_2"];
+    echo $item_2;
 ?>
 <!DOCTYPE html>
 <html>
