@@ -36,7 +36,6 @@ body {
   <th> Remove Item 
   <th> Shopping Items
 </tr>
-<td>
 <?php
 foreach($list as $value){
         echo "<td> <input type='checkbox'><th> ".$value . "<br><tr>";
