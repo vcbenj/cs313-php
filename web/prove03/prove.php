@@ -105,7 +105,7 @@ function setList(item, index) {
 function addList(str) {
   setList(str, i);
   hello = true;
-  document.getElementById('stuff').innerHTML += '<br>Some new content!';
+  document.getElementById('stuff').innerHTML += '<?php add_List(); ?>';
 }
 
   function clear() {
