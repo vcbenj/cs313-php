@@ -31,11 +31,18 @@ body {
 <div>
 <form action = "assign11.php" method = "get">
 
+<table>
+  <tr>
+  <th> Remove Item 
+  <th> Shopping Items
+</tr>
+<td>
 <?php
 foreach($list as $value){
-        echo "<input type='checkbox'> ".$value . "<br>";
+        echo "<td> <input type='checkbox'><th> ".$value . "<br>";
     }
 ?>
+</table>
      </form>
   <input type = "button" id="validate" value="Submit"> 
   <input type="button" value="Reset" id="reset">
