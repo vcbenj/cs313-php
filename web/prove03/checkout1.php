@@ -16,14 +16,15 @@ session_start();
 echo "NEW STUFF <br>";
 $newList = [];
 foreach($_SESSION['shp'] as $value) {
-    foreach($places as $place) {
-        if ($value == $place) {
+    $j = 0;
+
+        if ($value == $places[$j]) {
             echo "Hello <br>";
             $ind = array_search($value);
             array_splice($shp, 1, $ind);
             echo $value . "  was the new list<br>";
         }
-    }
+    $j++;
 }
     
 ?>
