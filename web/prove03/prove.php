@@ -38,10 +38,7 @@ body {
   <th> Description  
   </tr>
   <tr>
-  <td>  <input type="button" name="item_0" value="Add to Cart" id ="item_0" onclick="
-  <?php 
-  addList(); 
-  ?>"> 
+  <td>  <input type="button" name="item_0" value="Add to Cart" id ="item_0" onclick="addList('Dell') "> 
   <th> Laptop Dell 
   <th> $499
   <th> Dell XPS
@@ -106,7 +103,7 @@ function setList(item, index) {
 function addList(str) {
   setList(str, i);
   hello = true;
-  document.write("<a href='prove.php?hello=true?'>Run PHP Function</a>");
+  document.write("Hello World");
 }
 
   function clear() {
