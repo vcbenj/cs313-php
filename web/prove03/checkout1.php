@@ -5,6 +5,7 @@ session_start();
     echo "<br>";
     echo $_SESSION['index'];
     $shp = $_SESSION['shp'][3];
+    echo $shp[0];
     $List = $_GET["0"];
     $places = $_GET["places"];
     
