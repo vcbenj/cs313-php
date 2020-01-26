@@ -32,9 +32,9 @@ foreach($_SESSION['shp'] as $value) {
             array_splice($newList, 1, $j);
             
         }
-    
+        $j++;
     }
-    $j++;
+    
 }
 
 
