@@ -29,7 +29,6 @@ body {
 </header>
 
 <div>
-<form action = "assign11.php" method = "get">
 
 <table>
   <tr>
