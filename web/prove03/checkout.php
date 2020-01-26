@@ -39,8 +39,8 @@ body {
 <?php
 $index = 0;
 $t = false;
-foreach($list as $value){
-        echo "<td> <input type='checkbox' name='". $index . "'>Remove<th> ".$value . "<br><tr>";
+foreach($list as $value){ //name was the index
+        echo "<td> <input type='checkbox' name='places[]'>Remove<th> ".$value . "<br><tr>";
         $index++;
         $_SESSION['index']=$index;
     }
