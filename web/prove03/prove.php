@@ -27,7 +27,7 @@ body {
 </header>
 
 <div>
- 
+
  
   
 <table>
@@ -72,10 +72,10 @@ body {
 <div id="stuff">
      </div>
 <br>
-
+  
   <input type = "button" id="validate" value="Submit"> 
   <input type="button" value="Reset" id="reset">
-
+  <button onclick="window.location.href = 'checkout.php';">CheckOut</button>
 <script type="text/javascript">
 var total;
 var List;
@@ -106,8 +106,6 @@ function addList(str) {
   setList(str, i);
   i++;
   console.log("My list is " + List);
-  hello = true;
-  document.getElementById('stuff').innerHTML += '<?php add_List(); ?>';
 }
 
   function clear() {
