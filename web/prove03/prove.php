@@ -69,6 +69,8 @@ body {
       #  add_List();
      # }
     ?>
+<div id="stuff">
+     </div>
 <br>
 
   <input type = "button" id="validate" value="Submit"> 
@@ -103,7 +105,7 @@ function setList(item, index) {
 function addList(str) {
   setList(str, i);
   hello = true;
-  document.write("Hello World");
+  document.getElementById('stuff').innerHTML += '<br>Some new content!';
 }
 
   function clear() {
