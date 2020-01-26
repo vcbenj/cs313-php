@@ -78,7 +78,7 @@ body {
       #  add_List();
      # }
     ?>
-<div id="stuff">
+<div id="stuff" name="stuff">
      </div>
 <br>
      </form>
@@ -116,9 +116,8 @@ function addList(str) {
   setList(str, i);
   i++;
   console.log("My list is " + List);
-  document.getElementById('stuff').innerHTML += "<textarea name='myList'>"
   document.getElementById('stuff').innerHTML += List;
-  document.getElementById('stuff').innerHTML += "</textarea>";
+  
 
 }
 

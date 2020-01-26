@@ -1,11 +1,9 @@
 <?php
 // Start the session
 session_start();
-foreach($_SESSION['list'] as $key=>$value)
-    {
-    // and print out the values
-    echo 'The value of $_SESSION['."'".$key."'".'] is '."'".$value."'".' <br />';
-    }
+
+
+    $List = $_GET["stuff"];
 ?>
 <!DOCTYPE html>
 <html>
