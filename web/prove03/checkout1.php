@@ -21,7 +21,7 @@ session_start();
 echo "NEW STUFF <br>";
 foreach($list as $value) {
     foreach($places as $place) {
-        if ($list == $place) {
+        if ($value == $place) {
             $ind = array_search($value);
             array_splice($list, 1,ind);
             echo $value . "<br>";
