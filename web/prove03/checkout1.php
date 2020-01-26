@@ -22,7 +22,7 @@ foreach($_SESSION['shp'] as $value) {
             echo "Hello <br>";
             $ind = array_search($value);
             array_splice($shp, 1, $ind);
-            echo $value . "<br>";
+            echo $value . "  was the new list<br>";
         }
     }
 }
