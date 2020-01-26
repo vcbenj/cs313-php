@@ -16,7 +16,7 @@ session_start();
 echo "NEW STUFF <br>";
 $newList = _SESSION['shp'];
 foreach($newList as $value) {
-    echo $value . "<br>"
+    echo $value . "<br>";
 }
 echo "NEW STUFF <br>";
 foreach($_SESSION['shp'] as $value) {
