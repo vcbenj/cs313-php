@@ -27,7 +27,7 @@ foreach($_SESSION['shp'] as $value) {
         if ($value == $place) {
             echo "Hello <br>";
             $ind = array_search($value);
-            echo $ind . "<br>";
+            echo $j . "<br>";
             //$ind -= 1;
             array_splice($newList, 1, $j);
             
