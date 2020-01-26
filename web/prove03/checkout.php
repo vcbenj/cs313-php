@@ -47,11 +47,14 @@ foreach($list as $value){
   <input type="button" value="Reset" id="reset">
   <button onclick="window.location.href = 'checkout.php';">CheckOut</button>
 <script type="text/javascript">
-function removeList() {
+function removeList(index) {
     var t = true;
     if (t) {
         <?php 
-        echo "WASUP"
+        foreach($list as $value){
+            echo $value;
+            $index += $index;
+        }
         ?>
     }
 }
