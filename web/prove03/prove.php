@@ -112,6 +112,7 @@ function setList(item, index) {
     List[index] = item;
 }
 function addList(str) {
+  document.getElementById('stuff').innerHTML = " ";
   setList(str, i);
   i++;
   console.log("My list is " + List);
