@@ -3,7 +3,7 @@
 session_start();
 
 
-    $List = $_GET["stuff"];
+    $List = $_GET["myList"];
     echo $List;
 ?>
 <!DOCTYPE html>

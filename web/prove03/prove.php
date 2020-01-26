@@ -116,8 +116,9 @@ function addList(str) {
   setList(str, i);
   i++;
   console.log("My list is " + List);
+  document.getElementById('stuff').innerHTML += "<input name='myList' value='";
   document.getElementById('stuff').innerHTML += List;
-  
+  document.getElementById('stuff').innerHTML += "'></input>";
 
 }
 
