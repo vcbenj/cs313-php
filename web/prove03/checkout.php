@@ -39,7 +39,7 @@ body {
 <?php
 $index = 0;
 foreach($list as $value){
-        echo "<td> <button name='". $index . "' value='Remove' onclick='removeList()'>Remove<th> ".$value . "<br><tr>";
+        echo "<td> <button name='". $index . "'  onclick='removeList()'>Remove<th> ".$value . "<br><tr>";
         $index += $index;
     }
 ?>
