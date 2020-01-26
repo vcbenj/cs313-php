@@ -38,18 +38,22 @@ body {
 <?php
 $index = 0;
 foreach($list as $value){
-        echo "<td> <button name='". $index . "'  onclick='removeList()'>Remove<th> ".$value . "<br><tr>";
+        echo "<td> <button name='". $index . "'  onclick='removeList(". $index .")'>Remove<th> ".$value . "<br><tr>";
         $index += $index;
     }
 ?>
 </table>
-     </form>
   <input type = "button" id="validate" value="Submit"> 
   <input type="button" value="Reset" id="reset">
   <button onclick="window.location.href = 'checkout.php';">CheckOut</button>
 <script type="text/javascript">
 function removeList() {
-
+    var t = true;
+    if (t) {
+        <?php 
+        echo "WASUP"
+        ?>
+    }
 }
 
 </script>  
