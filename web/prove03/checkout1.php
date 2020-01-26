@@ -30,6 +30,7 @@ foreach($_SESSION['shp'] as $value) {
             echo $j . "<br>";
             //$ind -= 1;
             array_splice($newList, $j, $ind);
+            $j--;
             
         }
         $j++;
