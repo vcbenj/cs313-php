@@ -14,7 +14,11 @@ session_start();
 	echo $place . "<br>";
 }
 echo "NEW STUFF <br>";
-$newList = [];
+$newList = _SESSION['shp'];
+foreach($newList as $value) {
+    echo $value . "<br>"
+}
+echo "NEW STUFF <br>";
 foreach($_SESSION['shp'] as $value) {
     $j = 0;
     $newList[$j] = $value;
