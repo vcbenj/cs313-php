@@ -6,6 +6,7 @@ session_start();
     $List = $_GET["myList"];
     $list = explode(",", $List);
     echo "<br>";
+    $_SESSION['shp']=$list;
     
 ?>
 <!DOCTYPE html>
@@ -27,7 +28,7 @@ body {
 <header>
 <h1> BUY YOUR STUFF </h1>
 </header>
-
+<form action = "checkout1.php" method = "GET">
 <div>
 
 <table>
@@ -41,24 +42,13 @@ $t = false;
 foreach($list as $value){
         echo "<td> <input type='checkbox' name='". $index . "'  onclick='removeList(". $index .")'>Remove<th> ".$value . "<br><tr>";
         $index += $index;
+        $_SESSION['index']=$index;
     }
 ?>
 </table>
-  <input type = "button" id="validate" value="Submit"> 
-  <input type="button" value="Reset" id="reset">
-  <button onclick="window.location.href = 'checkout.php';">CheckOut</button>
+<input type="submit" value="Submit">CheckOut</button>
+     </form>
 <script type="text/javascript">
-function removeList(index) {
-    var t = true;
-    if (t) {
-        <?php 
-        foreach($list as $value){
-            echo $value;
-            $index += $index;
-        }
-        ?>
-    }
-}
 
 </script>  
   
