@@ -23,7 +23,7 @@ foreach($list as $value) {
     foreach($places as $place) {
         if ($value == $place) {
             $ind = array_search($value);
-            array_splice($list, 1,ind);
+            array_splice($list, 1, $ind);
             echo $value . "<br>";
         }
     }
