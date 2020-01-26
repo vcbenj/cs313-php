@@ -82,9 +82,7 @@ body {
      </div>
 <br>
      </form>
-  <input type = "button" id="validate" value="Submit"> 
-  <input type="button" value="Reset" id="reset">
-  <button onclick="window.location.href = 'checkout.php';">CheckOut</button>
+  <input type="submit" value="Submit">CheckOut</button>
 <script type="text/javascript">
 var total;
 var List;

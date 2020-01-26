@@ -50,7 +50,7 @@ body {
      </form>
   <input type = "button" id="validate" value="Submit"> 
   <input type="button" value="Reset" id="reset">
-  <button onclick="window.location.href = 'checkout.php';">CheckOut</button>
+  <button onclick="submit()">CheckOut</button>
 <script type="text/javascript">
 
 
