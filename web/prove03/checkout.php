@@ -40,7 +40,7 @@ body {
 $index = 0;
 $t = false;
 foreach($list as $value){ //name was the index
-        echo "<td> <input type='checkbox' name='places[]'>Remove<th> ".$value . "<br><tr>";
+        echo "<td> <input type='checkbox' value='stuffin' name='places[]'>Remove<th> ".$value . "<br><tr>";
         $index++;
         $_SESSION['index']=$index;
     }
