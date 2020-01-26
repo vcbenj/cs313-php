@@ -39,7 +39,7 @@ body {
 <td>
 <?php
 foreach($list as $value){
-        echo "<td> <input type='checkbox'><th> ".$value . "<br>";
+        echo "<td> <input type='checkbox'><th> ".$value . "<br><tr>";
     }
 ?>
 </table>
