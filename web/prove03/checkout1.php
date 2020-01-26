@@ -26,10 +26,10 @@ foreach($_SESSION['shp'] as $value) {
     foreach($places as $place) {
         if ($value == $place) {
             echo "Hello <br>";
-            $ind = array_search($value);
+            $ind = $j + 1;
             echo $j . "<br>";
             //$ind -= 1;
-            array_splice($newList, $j, $j);
+            array_splice($newList, $j, $ind);
             
         }
         $j++;
