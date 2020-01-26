@@ -5,9 +5,11 @@ session_start();
 
     $List = $_GET["myList"];
     echo $List;
-    echo "HEllo world";
-    $item_2 = $_GET["item_2"];
+    $list = explode.(",", $List);
     //echo $item_2;
+    foreach($list as $value){
+        echo $value . "<br>";
+    }
 ?>
 <!DOCTYPE html>
 <html>
