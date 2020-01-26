@@ -29,7 +29,7 @@ foreach($_SESSION['shp'] as $value) {
             $ind = array_search($value);
             echo $j . "<br>";
             //$ind -= 1;
-            array_splice($newList, 0, $j);
+            array_splice($newList, $j, $j);
             
         }
         $j++;
