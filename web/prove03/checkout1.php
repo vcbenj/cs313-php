@@ -16,20 +16,22 @@ session_start();
 echo "NEW STUFF <br>";
 $newList = [];
 foreach($_SESSION['shp'] as $value) {
-
+    $j = 0;
+    $newList[$j] = $value;
+    $j++;
     foreach($places as $place) {
         if ($value == $place) {
             echo "Hello <br>";
             $ind = array_search($value);
             //$ind -= 1;
-            array_splice($_SESSION['shp'], 0, $ind);
+            array_splice($newList, 0, $ind);
             
         }
     }
 }
 
 
-foreach($_SESSION['shp'] as $value) {
+foreach($newList as $value) {
     echo $value . "<br>";
 }
     
