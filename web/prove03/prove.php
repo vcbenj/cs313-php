@@ -81,8 +81,9 @@ body {
 <div id="stuff" name="stuff">
      </div>
 <br>
+<input type="submit" value="Submit">CheckOut</button>
      </form>
-  <input type="submit" value="Submit">CheckOut</button>
+  
 <script type="text/javascript">
 var total;
 var List;
