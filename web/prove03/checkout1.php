@@ -18,7 +18,7 @@ session_start();
 	//$place_clean = htmlspecialchars($place);
 	echo $place . "<br>";
 }
-echo "<br>";
+echo "NEW STUFF <br>";
 foreach($list as $value) {
     foreach($places as $place) {
         if ($list == $place) {
