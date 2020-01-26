@@ -18,5 +18,15 @@ session_start();
 	//$place_clean = htmlspecialchars($place);
 	echo $place . "<br>";
 }
+echo "<br>";
+foreach($list as $value) {
+    foreach($places as $place) {
+        if ($list == $place) {
+            $ind = array_search($value);
+            array_splice($list, 1,ind);
+            echo $value . "<br>";
+        }
+    }
+}
     
 ?>
