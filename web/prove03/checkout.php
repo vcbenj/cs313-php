@@ -41,7 +41,7 @@ $index = 0;
 $t = false;
 foreach($list as $value){
         echo "<td> <input type='checkbox' name='". $index . "'>Remove<th> ".$value . "<br><tr>";
-        $index += $index;
+        $index++;
         $_SESSION['index']=$index;
     }
 ?>
