@@ -4,8 +4,7 @@ session_start();
    
     echo "<br>";
     echo $_SESSION['index'];
-    $shp = $_SESSION['shp'][3];
-    echo $shp[0];
+    $_SESSION['shp'][3];
     $List = $_GET["0"];
     $places = $_GET["places"];
     
@@ -15,7 +14,7 @@ session_start();
 	echo $place . "<br>";
 }
 echo "NEW STUFF <br>";
-foreach($shp as $value) {
+foreach($_SESSION['shp'] as $value) {
     echo $value . " <_- <br>";
     foreach($places as $place) {
         echo $place . " <_- place <br>";
