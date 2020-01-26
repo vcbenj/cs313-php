@@ -20,11 +20,11 @@ session_start();
 }
 echo "NEW STUFF <br>";
 foreach($list as $value) {
-    echo $value . " <_- <br>"
+    echo $value . " <_- <br>";
     foreach($places as $place) {
-        echo $place . " <_- place <br>"
+        echo $place . " <_- place <br>";
         if ($value == $place) {
-            echo "Hello <br>"
+            echo "Hello <br>";
             $ind = array_search($value);
             array_splice($list, 1, $ind);
             echo $value . "<br>";
