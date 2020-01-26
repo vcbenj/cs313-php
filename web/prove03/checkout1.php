@@ -14,11 +14,10 @@ session_start();
 	echo $place . "<br>";
 }
 echo "NEW STUFF <br>";
+$newList = [];
 foreach($_SESSION['shp'] as $value) {
-    echo $value . " <_- <br>";
     foreach($places as $place) {
-        echo $place . " <_- place <br>";
-        if ($value != $place) {
+        if ($value == $place) {
             echo "Hello <br>";
             $ind = array_search($value);
             array_splice($shp, 1, $ind);
