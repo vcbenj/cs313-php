@@ -27,7 +27,7 @@ body {
 </header>
 
 <div>
-<form action = "checkout.php" method = "get">
+<form action = "checkout.php" method = "GET">
  
   
 <table>

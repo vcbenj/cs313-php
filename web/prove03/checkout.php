@@ -4,9 +4,10 @@ session_start();
 
 
     $List = $_GET["myList"];
-    echo "THIS IS " + $List;
+    echo $List;
+    echo "HEllo world";
     $item_2 = $_GET["item_2"];
-    echo $item_2;
+    //echo $item_2;
 ?>
 <!DOCTYPE html>
 <html>
@@ -50,7 +51,7 @@ body {
      </form>
   <input type = "button" id="validate" value="Submit"> 
   <input type="button" value="Reset" id="reset">
-  <button onclick="submit()">CheckOut</button>
+  <button onclick="window.location.href = 'checkout.php';">CheckOut</button>
 <script type="text/javascript">
 
 
