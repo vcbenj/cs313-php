@@ -34,6 +34,7 @@ foreach($newList as $value) {
             $j++;
             $ind = array_search($value, $newList);
             echo $value ." Is the value at ". $ind . "<br>";
+            $ind++;
             $i = $ind++;
             if ($newList[$i] === NULL) {
                 echo "Entering";
