@@ -27,11 +27,13 @@ foreach($_SESSION['shp'] as $value) {
         if ($value == $place) {
             echo "Hello <br>";
             $j++;
-            $ind = $j + 1;
+            $ind = array_search($value, $newList);
             echo $value ." Is the value at ". $j . "<br>";
             //$ind -= 1;
-            array_splice($newList, $j, $ind);
+            unset($newList, $ind);
+            var_dump($newList);
             $j--;
+            echo "<br> <br>"
             
         }
         $j++;
