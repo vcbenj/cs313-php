@@ -33,7 +33,7 @@ foreach($_SESSION['shp'] as $value) {
             unset($newList, $ind);
             var_dump($newList);
             $j--;
-            echo "<br> <br>"
+            echo "<br> <br>";
             
         }
         $j++;
