@@ -31,11 +31,11 @@ foreach($newList as $value) {
         if ($value == $place) {
             echo "Hello <br>";
             $j++;
-            $ind = array_search($value, $newList);
+            $ind = array_search($value, $newList1);
             echo $value ." Is the value at ". $ind . "<br>";
             $i = $ind + 1;
-            array_splice($newList1, $ind);
-            var_dump($newList);
+            array_splice($newList, $ind);
+            var_dump($newList1);
             //$j--;
             echo "<br> <br>";
             
