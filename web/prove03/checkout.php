@@ -4,8 +4,10 @@ session_start();
 
 
     $List = $_GET["myList"];
+    $add = $_GET["add"];
     $list = explode(",", $List);
     $_SESSION['shp']=$list;
+    $_SESSION['add']=$add;
     
 ?>
 <!DOCTYPE html>
