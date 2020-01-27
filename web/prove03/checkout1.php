@@ -22,7 +22,7 @@ echo "NEW STUFF <br>";
 $j = 0;
 foreach($newList as $value) {
     
-    $newList[$j] = $value;
+    //$newList[$j] = $value;
     
     foreach($places as $place) {
         if ($value == $place) {
@@ -33,7 +33,7 @@ foreach($newList as $value) {
             //$ind -= 1;
             array_splice($newList, $ind);
             var_dump($newList);
-            $j--;
+            //$j--;
             echo "<br> <br>";
             
         }
