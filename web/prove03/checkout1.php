@@ -15,17 +15,14 @@ session_start();
 }
 echo "NEW STUFF <br>";
 $newList = $_SESSION['shp'];
-$j = 0;
 foreach($newList as $value) {
     echo $value . "<br>";
-    $newList1[$j] = $value;
-    $j++;
 }
 echo "NEW STUFF <br>";
 $j = 0;
 foreach($newList as $value) {
     
-    
+    $newList1[$j] = $value;
     echo "------------------";
     var_dump($newList1);
     echo '<br>----------<br><br>';
@@ -44,6 +41,7 @@ foreach($newList as $value) {
             
             
         }
+       
         
     }
     $j++;
