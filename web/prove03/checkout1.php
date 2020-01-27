@@ -30,14 +30,16 @@ foreach($newList as $value) {
     foreach($places as $place) {
         if ($value == $place) {
             echo "Hello <br>";
+            
             $j++;
             $ind = array_search($value, $newList1);
             echo $value ." Is the value at ". $ind . "<br>";
             $i = $ind + 1;
-            array_splice($newList1, $ind);
             if ($newList1[$i] === null) {
             break;
             }
+            array_splice($newList1, $ind);
+            
             var_dump($newList1);
             //$j--;
             echo "<br> <br>";
