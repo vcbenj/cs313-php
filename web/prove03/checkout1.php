@@ -59,7 +59,7 @@ foreach ($places as $place) {
 // }
 echo "__________________________________________<br>";
 
-foreach($newList1 as $value) {
+foreach($newList as $value) {
     echo $value . "<br>";
 }
     
