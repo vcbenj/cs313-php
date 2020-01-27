@@ -35,7 +35,7 @@ foreach($newList as $value) {
             $ind = array_search($value, $newList);
             echo $value ." Is the value at ". $ind . "<br>";
             $i = $ind++;
-            if ($newList === NULL) {
+            if ($newList[$i] === NULL) {
                 echo "Entering";
             break;
             }
