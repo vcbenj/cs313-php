@@ -38,7 +38,7 @@ body {
 
 <h1> BUY YOUR STUFF </h1>
 </header>
-
+<form action = "confirm.php" method = "GET">
 <table>
   <tr>
   <th> Shopping Items
@@ -51,6 +51,11 @@ foreach($newList as $value){ //name was the index
         //$index++;
         //$_SESSION['index']=$index;
     }
+
+    $_SESSION['lst'] = $newList; 
 ?>
 </table>
-<input type="submit" value="Submit">Confirm Purchace</button>
+<input type="submit" value="Confrim Purchace"></button>
+</form>
+  
+</html>
