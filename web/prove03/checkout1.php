@@ -28,7 +28,7 @@ foreach($newList as $value) {
             echo "Hello <br>";
             $j++;
             $ind = array_search($value, $newList);
-            echo $value ." Is the value at ". $j . "<br>";
+            echo $value ." Is the value at ". $ind . "<br>";
             //$ind -= 1;
             array_splice($newList, $ind);
             var_dump($newList);
