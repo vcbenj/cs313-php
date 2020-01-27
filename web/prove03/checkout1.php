@@ -34,7 +34,7 @@ foreach($newList as $value) {
             $ind = array_search($value, $newList1);
             echo $value ." Is the value at ". $ind . "<br>";
             $i = $ind + 1;
-            array_splice($newList, $ind);
+            array_splice($newList1, $ind);
             var_dump($newList1);
             //$j--;
             echo "<br> <br>";
