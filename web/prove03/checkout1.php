@@ -32,11 +32,11 @@ foreach($newList as $value) {
             echo "Hello <br>";
             
             $j++;
-            $ind = array_search($value, $newList1);
+            $ind = array_search($value, $newList);
             echo $value ." Is the value at ". $ind . "<br>";
             $i = $ind++;
            
-            array_splice($newList1, $ind, $i);
+            array_splice($newList, $ind, $i);
             echo "New List   -- ";
             var_dump($newList);
             //$j--;
