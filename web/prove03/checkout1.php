@@ -30,14 +30,15 @@ foreach($_SESSION['shp'] as $value) {
             $ind = array_search($value, $newList);
             echo $value ." Is the value at ". $j . "<br>";
             //$ind -= 1;
-            unset($newList, $ind);
+            array_splice($newList, $ind);
             var_dump($newList);
             $j--;
             echo "<br> <br>";
             
         }
-        $j++;
+        
     }
+    $j++;
     
 }
 
