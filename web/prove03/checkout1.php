@@ -22,7 +22,7 @@ echo "NEW STUFF <br>";
 $j = 0;
 foreach($newList as $value) {
     
-    //$newList[$j] = $value;
+    $newList1[$j] = $value;
     
     foreach($places as $place) {
         if ($value == $place) {
@@ -30,8 +30,8 @@ foreach($newList as $value) {
             $j++;
             $ind = array_search($value, $newList);
             echo $value ." Is the value at ". $ind . "<br>";
-            //$ind -= 1;
-            array_splice($newList, $ind);
+            $i = $ind + 1;
+            array_splice($newList, $ind, $i);
             var_dump($newList);
             //$j--;
             echo "<br> <br>";
