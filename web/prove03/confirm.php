@@ -1,8 +1,6 @@
 <?php
 // Start the session
 session_start();
-echo $_SESSION['lst'];
-echo $_SESSION['add'];
 ?>
 <!DOCTYPE html>
 <html>
