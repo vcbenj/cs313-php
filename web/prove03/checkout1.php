@@ -26,6 +26,7 @@ foreach($_SESSION['shp'] as $value) {
     foreach($places as $place) {
         if ($value == $place) {
             echo "Hello <br>";
+            $j++;
             $ind = $j + 1;
             echo $value ." Is the value at ". $j . "<br>";
             //$ind -= 1;
