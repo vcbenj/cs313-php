@@ -34,12 +34,10 @@ foreach($newList as $value) {
             $j++;
             $ind = array_search($value, $newList1);
             echo $value ." Is the value at ". $ind . "<br>";
-            $i = $ind + 1;
-            if ($newList1[$i] === null) {
-            break;
-            }
-            array_splice($newList1, $ind);
-            
+            $i = $ind++;
+           
+            array_splice($newList1, $ind, $i);
+            echo "New List   -- ";
             var_dump($newList1);
             //$j--;
             echo "<br> <br>";
