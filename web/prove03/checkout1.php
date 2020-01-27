@@ -23,8 +23,9 @@ $j = 0;
 foreach($newList as $value) {
     
     $newList1[$j] = $value;
+    echo "------------------";
     var_dump($newList1);
-    echo '<br><br>------<br>';
+    echo '<br>----------<br><br>';
     
     foreach($places as $place) {
         if ($value == $place) {
@@ -33,7 +34,7 @@ foreach($newList as $value) {
             $ind = array_search($value, $newList);
             echo $value ." Is the value at ". $ind . "<br>";
             $i = $ind + 1;
-            array_splice($newList, $ind, $i);
+            array_splice($newList1, $ind);
             var_dump($newList);
             //$j--;
             echo "<br> <br>";
@@ -45,9 +46,9 @@ foreach($newList as $value) {
     $j++;
     
 }
+echo "__________________________________________<br>";
 
-
-foreach($newList as $value) {
+foreach($newList1 as $value) {
     echo $value . "<br>";
 }
     
