@@ -69,8 +69,10 @@ body {
       #  add_List();
      # }
     ?>
-<div id="stuff" name="stuff">
+
 <input  name='add' placeholder="Enter your Address"></input>
+<div id="stuff" name="stuff">
+
      </div>
 <br>
 <input type="submit" value="Submit">CheckOut</button>
