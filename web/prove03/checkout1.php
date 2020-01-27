@@ -19,7 +19,7 @@ foreach($newList as $value) {
     echo $value . "<br>";
 }
 echo "NEW STUFF <br>";
-foreach($_SESSION['shp'] as $value) {
+foreach($newList as $value) {
     $j = 0;
     $newList[$j] = $value;
     
