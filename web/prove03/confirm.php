@@ -25,3 +25,17 @@ body {
 </header>
 
 <div>
+<h3> Your purchaces </h3>
+<?php
+  echo "<ul>";
+  foreach($_SESSION['lst'] as $value) {
+    echo "<li>". $value . "</li>";
+  }
+  echo "</ul>";
+
+  echo "<h3>Your Address: " . $_SESSION['add'];
+
+?>
+
+<h4> Thank you please come again. </h4>
+</div>
