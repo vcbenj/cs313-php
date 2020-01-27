@@ -20,40 +20,43 @@ foreach($newList as $value) {
 }
 echo "NEW STUFF <br>";
 $j = 0;
-foreach($newList as $value) {
+
+foreach ($places as $place) {
+    $ind = array_search($place, $newList);
+    array_splice($newList, $ind, $ind++);
+    var_dump($newList);
+}
+// foreach($newList as $value) {
     
-    $newList1[$j] = $value;
-    echo "------------------";
-    var_dump($newList1);
-    echo '<br>----------<br><br>';
+//     $newList1[$j] = $value;
+//     echo "------------------";
+//     var_dump($newList1);
+//     echo '<br>----------<br><br>';
     
-    foreach($places as $place) {
-        if ($value == $place) {
-            echo "Hello <br>";
+//     foreach($places as $place) {
+//         if ($value == $place) {
+//             echo "Hello <br>";
             
-            $j++;
-            $ind = array_search($value, $newList);
-            echo $value ." Is the value at ". $ind . "<br>";
-            $ind++;
-            $i = $ind++;
-            if ($newList[$i] === NULL) {
-                echo "Entering";
-            break;
-            }
-            array_splice($newList, $ind, $i);
-            echo "New List   -- ";
-            var_dump($newList);
-            //$j--;
-            echo "<br> <br>";
+//             $j++;
+//             $ind = array_search($value, $newList);
+//             echo $value ." Is the value at ". $ind . "<br>";
+//             $ind++;
+//             $i = $ind++;
+           
+//             array_splice($newList, $ind, $i);
+//             echo "New List   -- ";
+//             var_dump($newList);
+//             //$j--;
+//             echo "<br> <br>";
             
             
-        }
+//         }
        
         
-    }
-    $j++;
+//     }
+//     $j++;
     
-}
+// }
 echo "__________________________________________<br>";
 
 foreach($newList1 as $value) {
