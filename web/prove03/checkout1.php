@@ -19,8 +19,9 @@ foreach($newList as $value) {
     echo $value . "<br>";
 }
 echo "NEW STUFF <br>";
+$j = 0;
 foreach($newList as $value) {
-    $j = 0;
+    
     $newList[$j] = $value;
     
     foreach($places as $place) {
