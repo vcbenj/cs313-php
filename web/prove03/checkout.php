@@ -5,7 +5,6 @@ session_start();
 
     $List = $_GET["myList"];
     $list = explode(",", $List);
-    echo "<br>";
     $_SESSION['shp']=$list;
     
 ?>

@@ -7,6 +7,9 @@ session_start();
     
 $newList = $_SESSION['shp'];
 
+if ($newList[0] === $places[0]) {
+    array_splice($newList, 0, 1);
+}
 
 foreach ($places as $place) {
     $ind = array_search($place, $newList);
