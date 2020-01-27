@@ -38,7 +38,7 @@ foreach($newList as $value) {
            
             array_splice($newList1, $ind, $i);
             echo "New List   -- ";
-            var_dump($newList1);
+            var_dump($newList);
             //$j--;
             echo "<br> <br>";
             
