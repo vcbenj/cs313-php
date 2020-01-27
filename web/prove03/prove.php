@@ -106,7 +106,7 @@ function addList(str) {
   setList(str, i);
   i++;
   console.log("My list is " + List);
-  var com = "<input name='myList' value='" + List + "'></input>";
+  var com = "<input type='hidden' name='myList' value='" + List + "'></input>";
   document.getElementById('stuff').innerHTML += com;
   //document.getElementById('stuff').innerHTML += List;
   //document.getElementById('stuff').innerHTML += "'></input>";
