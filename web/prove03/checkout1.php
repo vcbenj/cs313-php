@@ -23,6 +23,8 @@ $j = 0;
 foreach($newList as $value) {
     
     $newList1[$j] = $value;
+    var_dump($newList1);
+    echo '<br><br>------<br>';
     
     foreach($places as $place) {
         if ($value == $place) {
@@ -35,6 +37,7 @@ foreach($newList as $value) {
             var_dump($newList);
             //$j--;
             echo "<br> <br>";
+            
             
         }
         
