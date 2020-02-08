@@ -24,7 +24,6 @@ $db = get_db();
 <body>
     <form>
         <div id="signUp">
-    <script src="script.js"></script>
     <img src="Cleanado_name_and_logo.png" alt="Cleanado Logo">
     <br>
     <h1> Your Checklist</h1>
@@ -70,7 +69,7 @@ while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 	$verse = $row['jobCheck'];
 	
 
-	echo "<p><strong>$book $chapter:$verse</strong> <p>";
+	echo "<p><strong>STUFF - $book $chapter $verse</strong> <p>";
 }
 
 echo "WASSUP";
