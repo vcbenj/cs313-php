@@ -41,6 +41,7 @@ $user_id = $_GET["username"];
 echo "HEYYY";
 $statement1 = $db->prepare("SELECT username, password FROM public.user");
 $statement1->execute();
+echo "HEYYY";
 $match = false;
 while ($row = $statement1->fetch(PDO::FETCH_ASSOC))
 {
@@ -50,7 +51,7 @@ while ($row = $statement1->fetch(PDO::FETCH_ASSOC))
     }
 }
 
-if (!$match) {
+if ($match === false) {
     echo "YOUR USER NAME DID NOT MATCH";
 
 }
