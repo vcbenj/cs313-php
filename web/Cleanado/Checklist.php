@@ -71,7 +71,7 @@ while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 	$verse = $row['jobCheck'];
 	
 
-	echo "<p><strong>$book $chapter:$verse</strong> - \"$content\"<p>";
+	echo "<p><strong>$book $chapter:$verse</strong> <p>";
 }
 
 ?>
