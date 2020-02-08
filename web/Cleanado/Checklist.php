@@ -38,10 +38,10 @@ $db = get_db();
 
 <?php
 $user_id = $_GET["username"];
-$statement = $db->prepare("SELECT username, password FROM public.user");
-$statement->execute();
+$statement1 = $db->prepare("SELECT username, password FROM public.user");
+$statement1->execute();
 $match = false;
-while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+while ($row = $statement1->fetch(PDO::FETCH_ASSOC))
 {
     $username =$row['username'];
     if ($username === $user_id) {
