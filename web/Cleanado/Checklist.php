@@ -38,6 +38,21 @@ $db = get_db();
 
 <?php
 $user_id = $_GET["username"];
+$statement = $db->prepare("SELECT username, password FROM public.user");
+$statement->execute();
+$match = false;
+while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+{
+    $username =$row['username'];
+    if ($username === $user_id) {
+        $match = true;
+    }
+}
+
+if (!$match) {
+    echo "YOUR USER NAME DID NOT MATCH";
+
+}
 $str = "SELECT jobDesc, DueDate, jobCheck FROM public.job WHERE id=". $user_id;
 echo $str;
 $statement = $db->prepare("SELECT jobDesc, DueDate, jobCheck FROM public.job");
