@@ -38,6 +38,7 @@ $db = get_db();
 
 <?php
 $user_id = $_GET["username"];
+echo "HEYYY";
 $statement1 = $db->prepare("SELECT username, password FROM public.user");
 $statement1->execute();
 $match = false;
