@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <form>
+    <form action = "Checklist.php" method = "GET">
         <div id="signUp">
     <script src="script.js"></script>
     <img src="Cleanado_name_and_logo.png" alt="Cleanado Logo">
