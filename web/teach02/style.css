@@ -1,0 +1,19 @@
+body {
+    background-color: azure;
+}
+
+#div1 {
+    background-color: blueviolet;
+}
+#two {
+    background-color: coral;
+
+}
+#three {
+    background-color: teal;
+
+}
+
+.hover-bold:hover {
+	font-weight: bold;
+}

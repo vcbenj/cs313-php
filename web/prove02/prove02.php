@@ -29,7 +29,7 @@
 $t=time();
 echo($t . "<br>");
 echo(date("Y-m-d",$t));
-echo("</div>")
+echo("</div>");
 ?>
   </body>
 </html>
