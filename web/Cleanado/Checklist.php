@@ -66,7 +66,7 @@ while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 	
 
     echo "<p><strong> $jobD $duedate $jobC </strong> </p><br>";
-    echo "<input type='checklist'> " . $jobD . "</input>";
+    echo "<input type='checkbox'> " . $jobD . "</input>";
 }
 
 
