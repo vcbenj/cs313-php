@@ -5,15 +5,17 @@ $_SESSION['error']= "null";
 require "db.php";
 $db = get_db();
 $user_id = $_GET["username"];
-$statement1 = $db->prepare("SELECT username, password FROM public.users");
+$statement1 = $db->prepare("SELECT id, username, password FROM public.users");
 $statement1->execute();
 $match = false;
 while ($row = $statement1->fetch(PDO::FETCH_ASSOC))
 {
     $username =$row['username'];
+    
     if ($username === $user_id) {
         $match = true;
     }
+    $user_id = $row['id'];
 }
 
 if ($match === false) {
