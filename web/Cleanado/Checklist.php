@@ -52,26 +52,23 @@ if ($match === false) {
 
 <?php
 
-$str = "SELECT jobDesc, DueDate, jobCheck FROM public.job WHERE id=". $user_id;
+#$str = "SELECT jobDesc, DueDate, jobCheck FROM public.job WHERE id=". $user_id;
 echo $str;
-$statement = $db->prepare("SELECT jobDesc, DueDate, jobCheck FROM public.job");
+$statement = $db->prepare($str);
 $statement->execute();
 
-// Go through each result
 while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 {
-	// The variable "row" now holds the complete record for that
-	// row, and we can access the different values based on their
-	// name
-	$book = $row['jobdesc'];
-	$chapter = $row['duedate'];
-	$verse = $row['jobcheck'];
+	
+	$jobD = $row['jobdesc'];
+	$duedate = $row['duedate'];
+	$jobC = $row['jobcheck'];
 	
 
-	echo "<p><strong>STUFF - $book $chapter $verse</strong> <p>";
+    echo "<p><strong> $jobD $duedate $jobC </strong> <p>";
+    echo "<input type='checklist'> " . $jobD . "</input>";
 }
 
-echo "WASSUP";
 
 ?>
 </body>
