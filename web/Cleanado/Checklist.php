@@ -9,6 +9,23 @@
 
 require "db.php";
 $db = get_db();
+$user_id = $_GET["username"];
+$statement1 = $db->prepare("SELECT username, password FROM public.users");
+$statement1->execute();
+$match = false;
+while ($row = $statement1->fetch(PDO::FETCH_ASSOC))
+{
+    $username =$row['username'];
+    if ($username === $user_id) {
+        $match = true;
+    }
+}
+
+if ($match === false) {
+    echo "YOUR USER NAME DID NOT MATCH";
+    header ("location: LoginView.php");
+
+}
 
 ?>
 <!DOCTYPE html>
@@ -37,24 +54,7 @@ $db = get_db();
 
 
 <?php
-$user_id = $_GET["username"];
-echo "HEYYY";
-$statement1 = $db->prepare("SELECT username, password FROM public.users");
-$statement1->execute();
-echo "HEYYY";
-$match = false;
-while ($row = $statement1->fetch(PDO::FETCH_ASSOC))
-{
-    $username =$row['username'];
-    if ($username === $user_id) {
-        $match = true;
-    }
-}
 
-if ($match === false) {
-    echo "YOUR USER NAME DID NOT MATCH";
-
-}
 $str = "SELECT jobDesc, DueDate, jobCheck FROM public.job WHERE id=". $user_id;
 echo $str;
 $statement = $db->prepare("SELECT jobDesc, DueDate, jobCheck FROM public.job");
