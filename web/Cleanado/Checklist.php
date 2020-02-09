@@ -54,7 +54,7 @@ if ($match === false) {
 
 #$str = "SELECT jobDesc, DueDate, jobCheck FROM public.job WHERE id=". $user_id;
 echo $str;
-$statement = $db->prepare($str);
+$statement = $db->prepare("SELECT jobDesc, DueDate, jobCheck FROM public.job");
 $statement->execute();
 
 while ($row = $statement->fetch(PDO::FETCH_ASSOC))
