@@ -1,12 +1,7 @@
 <?php
-/**********************************************************
-* File: viewScriptures.php
-* Author: Br. Burton
-* 
-* Description: This file shows an example of how to query a
-*   PostgreSQL database from PHP.
-***********************************************************/
 
+session_start();
+$_SESSION['error']= "null";
 require "db.php";
 $db = get_db();
 $user_id = $_GET["username"];
@@ -22,8 +17,8 @@ while ($row = $statement1->fetch(PDO::FETCH_ASSOC))
 }
 
 if ($match === false) {
-    echo "YOUR USER NAME DID NOT MATCH";
-    header ("location: LoginView.php");
+    $_SESSION['error'] = 'error';
+    header ("location: LoginView1.php");
 
 }
 
