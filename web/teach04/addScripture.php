@@ -24,13 +24,16 @@ $db = get_db();
 <h1>Scripture Resources</h1>
 
 <?php
+$book = _POST['book'];
+$chapter = _POST['chapter'];
+$verse = _POST['verse'];
+$content = _POST['content'];
 
-
-// $statement = $db->prepare("INSERT INTO public.scripture (book, chapter, verse, content) VALUES()");
-// $statement->execute();
+$statement = $db->prepare("INSERT INTO public.scripture (book) VALUES(". $book . ")");
+$statement->execute();
 
 // // Go through each result
-// while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+//while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 // {
 // 	// The variable "row" now holds the complete record for that
 // 	// row, and we can access the different values based on their
