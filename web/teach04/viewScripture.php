@@ -19,7 +19,7 @@ $db = get_db();
 
 <body>
 <div>
-
+<form action = "addScripture.php" method = "POST">
 <h1>Scripture Resources</h1>
 
 <?php
@@ -59,8 +59,16 @@ while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 }
 
 ?>
+<input  name='book' placeholder="Enter your Address"></input>
+<input  name='chapter' placeholder="Enter your Address"></input>
+<input  name='verse' placeholder="Enter your Address"></input>
+<input  name='content' placeholder="Enter your Address"></input>
+<input type='checkbox'> Faith </input>
+<input type='checkbox'> Hope </input>
+<input type='checkbox'> Love </input>
 
-
+<input type="submit" value="Submit">Submit</button>
+     </form>
 </div>
 
 </body>
