@@ -32,9 +32,10 @@ $content = _POST['content'];
 $statement = $db->prepare("INSERT INTO public.scripture (book) VALUES(". $book . ")");
 $statement->execute();
 
-
+echo "YOU ARE HERE";
 $statement = $db->prepare("SELECT book, chapter, verse, content FROM scripture");
 $statement->execute();
+echo "YOU ARE HERE";
 
 // // Go through each result
 while ($row = $statement->fetch(PDO::FETCH_ASSOC))
@@ -49,6 +50,7 @@ while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 
 	echo "<p><strong>$book $chapter:$verse</strong> - \"$content\"<p>";
 }
+echo "YOU ARE HERE";
 
 ?>
 
