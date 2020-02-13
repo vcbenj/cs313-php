@@ -1,75 +1,87 @@
 <?php
 /**********************************************************
-* File: viewScriptures.php
+* File: insertTopic.php
 * Author: Br. Burton
 * 
-* Description: This file shows an example of how to query a
-*   PostgreSQL database from PHP.
+* Description: Takes input posted from topicEntry.php
+*   This file enters a new scripture into the database
+*   along with its associated topics.
+*
+*   This file does NOT do any rendering at all,
+*   instead it redirects the user to showTopics.php to see
+*   the resulting list.
 ***********************************************************/
 
-require "dbConnect.php";
+// get the data from the POST
+$book = $_POST['txtBook'];
+$chapter = $_POST['txtChapter'];
+$verse = $_POST['txtVerse'];
+$content = $_POST['txtContent'];
+$topicIds = $_POST['chkTopics'];
+
+// For debugging purposes, you might include some echo statements like this
+// and then not automatically redirect until you have everything working.
+
+// echo "book=$book\n";
+// echo "chapter=$chapter\n";
+// echo "verse=$verse\n";
+// echo "content=$content\n";
+
+// we could (and should!) put additional checks here to verify that all this data is actually provided
+
+
+require("dbConnect.php");
 $db = get_db();
 
-?>
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Scripture List</title>
-</head>
-
-<body>
-<div>
-<form action = "addScripture.php" method = "POST">
-<h1>Scripture Resources</h1>
-
-<?php
-
-// In this example, for simplicity, the query is executed
-// right here and the data echoed out as we iterate the query.
-
-// You could imagine that in a more involved application, we
-// would likely query the database in a completely separate file / function
-// and build a list of objects that held the components of each
-// scripture. Then, here on the page, we could simply call that 
-// function, and iterate through the list that was returned and
-// print each component.
-
-
-
-// First, prepare the statement
-
-// Notice that we avoid using "SELECT *" here. This is considered
-// good practice so we don't inadvertently bring back data we don't
-// want, especially if the database changes later.
-$statement = $db->prepare("SELECT book, chapter, verse, content FROM scripture");
-$statement->execute();
-
-// Go through each result
-while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+try
 {
-	// The variable "row" now holds the complete record for that
-	// row, and we can access the different values based on their
-	// name
-	$book = $row['book'];
-	$chapter = $row['chapter'];
-	$verse = $row['verse'];
-	$content = $row['content'];
+	// Add the Scripture
 
-	echo "<p><strong>$book $chapter:$verse</strong> - \"$content\"<p>";
+	// We do this by preparing the query with placeholder values
+	$query = 'INSERT INTO scripture(book, chapter, verse, content) VALUES(:book, :chapter, :verse, :content)';
+	$statement = $db->prepare($query);
+
+	// Now we bind the values to the placeholders. This does some nice things
+	// including sanitizing the input with regard to sql commands.
+	$statement->bindValue(':book', $book);
+	$statement->bindValue(':chapter', $chapter);
+	$statement->bindValue(':verse', $verse);
+	$statement->bindValue(':content', $content);
+
+	$statement->execute();
+
+	// get the new id
+	$scriptureId = $db->lastInsertId("scripture_id_seq");
+
+	// Now go through each topic id in the list from the user's checkboxes
+	foreach ($topicIds as $topicId)
+	{
+		echo "ScriptureId: $scriptureId, topicId: $topicId";
+
+		// Again, first prepare the statement
+		$statement = $db->prepare('INSERT INTO scripture_topic(scriptureId, topicId) VALUES(:scriptureId, :topicId)');
+
+		// Then, bind the values
+		$statement->bindValue(':scriptureId', $scriptureId);
+		$statement->bindValue(':topicId', $topicId);
+
+		$statement->execute();
+	}
+}
+catch (Exception $ex)
+{
+	// Please be aware that you don't want to output the Exception message in
+	// a production environment
+	echo "Error with DB. Details: $ex";
+	die();
 }
 
+// finally, redirect them to a new page to actually show the topics
+header("Location: showTopics.php");
+
+die(); // we always include a die after redirects. In this case, there would be no
+       // harm if the user got the rest of the page, because there is nothing else
+       // but in general, there could be things after here that we don't want them
+       // to see.
+
 ?>
-<input  name='book' placeholder="Enter your Address"></input>
-<input  name='chapter' placeholder="Enter your Address"></input>
-<input  name='verse' placeholder="Enter your Address"></input>
-<input  name='content' placeholder="Enter your Address"></input>
-<input type='checkbox'> Faith </input>
-<input type='checkbox'> Hope </input>
-<input type='checkbox'> Love </input>
-
-<input type="submit" value="Submit">Submit</button>
-     </form>
-</div>
-
-</body>
-</html>
