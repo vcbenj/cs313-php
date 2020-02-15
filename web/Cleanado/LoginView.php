@@ -18,7 +18,7 @@
     <br>
     <input  name='password' placeholder="Password"></input>
     <br>
-    <input type='checkbox' value='Are you a new user?' onclick='newUser()'>New User? Click Here </input>
+    <button onclick="window.location.href = 'signUp.php';">Sign Up</button>
     <br>
     
 </div>
@@ -27,18 +27,4 @@
 </body>
 
 </html>
-
-<script type="text/javascript">
-var isNew = true;
-function newUser() {
-    if (isNew) {
-    var com = "<input  name='AptNumber'placeholder='Apartment Number' ></input><br>";
-    var com1 = "<input  name='Complex'placeholder='Apartment Complex' ></input><br>";
-  document.getElementById('signUp').innerHTML += com;
-  document.getElementById('signUp').innerHTML += com1;
-  isNew=false;
-    }
-}
-
-
-</script>  
+ 
