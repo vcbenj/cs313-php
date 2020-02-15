@@ -9,6 +9,7 @@
 </head>
 
 <body>
+
     <form action = "Checklist.php" method = "GET">
         <div id="signUp">
     <script src="script.js"></script>
@@ -18,12 +19,13 @@
     <br>
     <input  name='password' placeholder="Password"></input>
     <br>
-    <button onclick="window.location.href = 'signUp.php';">Sign Up</button>
+   
     <br>
     
 </div>
 <input type="submit" value="Login"></button>
 </form>
+<button onclick="window.location.href = 'signUp.php';">Sign Up</button>
 </body>
 
 </html>
