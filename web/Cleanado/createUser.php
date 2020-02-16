@@ -24,11 +24,14 @@ $db = get_db();
 echo "HI";
 try
 {
+    echo "HI";
     $query1 = "SELECT aptid, aptnumber FROM public.apartments WHERE aptnumber = :aptnumber";
+    echo "HI";
     $statement = $db->prepare($query1);
 
     $statement->bindValue(':aptnumber', $aptnumber);
     $statement->execute();
+    echo "HI";
     while ($row = $statement->fetch(PDO::FETCH_ASSOC))
     {
         $aptid =$row['aptid'];
