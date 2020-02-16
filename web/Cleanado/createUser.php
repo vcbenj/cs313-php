@@ -25,7 +25,7 @@ $db = get_db();
 try
 {
 	// Add the Scripture
-    $statement1 = $db->prepare("SELECT aptid, aptnumber, password FROM public.apartments");
+    $statement1 = $db->prepare("SELECT aptid, aptnumber FROM public.apartments");
     $statement1->execute();
     $match = false;
     while ($row = $statement1->fetch(PDO::FETCH_ASSOC))
