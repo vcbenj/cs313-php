@@ -29,7 +29,7 @@ try
 
     $statement->bindValue(':aptnumber', $aptnumber);
     $statement->execute();
-    while ($row = $statement1->fetch(PDO::FETCH_ASSOC))
+    while ($row = $statement->fetch(PDO::FETCH_ASSOC))
     {
         $aptid =$row['aptid'];
     
