@@ -24,7 +24,7 @@ $db = get_db();
 echo "HI";
 try
 {
-    $query1 = "SELECT aptid, aptnumber FROM public.apartments WHERE aptNumber = :aptnumber";
+    $query1 = "SELECT aptid, aptnumber FROM public.apartments WHERE aptnumber = :aptnumber";
     $statement = $db->prepare($query1);
 
     $statement->bindValue(':aptnumber', $aptnumber);
