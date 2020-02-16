@@ -47,9 +47,9 @@ try
 	// Now we bind the values to the placeholders. This does some nice things
 	// including sanitizing the input with regard to sql commands.
 	$statement->bindValue(':username', $username);
-	$statement->bindValue(':chapter', $chapter);
-	$statement->bindValue(':verse', $verse);
-	$statement->bindValue(':content', $content);
+	#$statement->bindValue(':chapter', $chapter);
+	#$statement->bindValue(':verse', $verse);
+	#$statement->bindValue(':content', $content);
 
 	$statement->execute();
 
