@@ -3,7 +3,7 @@
 
 // get the data from the POST
 $book = $_GET['username'];
-$chapter = $_GET['password'];
+$password = $_GET['password'];
 $verse = $_GET['Complex'];
 $content = $_GET['AptNumber'];
 $topicIds = $_GET['chkTopics'];
@@ -47,7 +47,7 @@ try
 	// Now we bind the values to the placeholders. This does some nice things
 	// including sanitizing the input with regard to sql commands.
 	$statement->bindValue(':username', $username);
-	#$statement->bindValue(':chapter', $chapter);
+	$statement->bindValue(':password', $password);
 	#$statement->bindValue(':verse', $verse);
 	#$statement->bindValue(':content', $content);
 
