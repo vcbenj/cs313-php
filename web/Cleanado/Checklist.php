@@ -43,7 +43,6 @@ if ($match === false) {
     <h1> Your Checklist</h1>
     
 </div>
-<input type="submit" value="Login"></button>
 </form>
 
 
