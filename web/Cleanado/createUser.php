@@ -1,6 +1,5 @@
 <?php
 
-
 // get the data from the POST
 $username = $_GET['username'];
 $password = $_GET['password'];
@@ -8,42 +7,80 @@ $complex = $_GET['complex'];
 $aptnumber = $_GET['aptnumber'];
 #$topicIds = $_GET['chkTopics'];
 
-// For debugging purposes, you might include some echo statements like this
-// and then not automatically redirect until you have everything working.
-
-// echo "book=$book\n";
-// echo "chapter=$chapter\n";
-// echo "verse=$verse\n";
-// echo "content=$content\n";
-
-// we could (and should!) put additional checks here to verify that all this data is actually provided
-
-
 require("db.php");
 $db = get_db();
 echo "HI";
-try
-{
+
+function newComplex() {
     $query = 'INSERT INTO public.complex(complexName) VALUES(:complex)';
 	$statement = $db->prepare($query);
     
 	$statement->bindValue(':complex', $complex);
     $statement->execute();
+}
 
+function newApartment() {
     $query = 'INSERT INTO public.apartments(aptnumber) VALUES(:aptnumber)';
 	$statement = $db->prepare($query);
     
 	$statement->bindValue(':aptnumber', $aptnumber);
-	//$statement->bindValue(':password', $password);
-	//$statement->bindValue(':aptid', $aptid);
-    //echo "HI";
-    //$query1 = "SELECT aptid, aptnumber FROM public.apartments WHERE aptnumber = :aptnumber";
-    //echo "HI";
-    //$statement = $db->prepare($query1);
 
-    //$statement->bindValue(':aptnumber', $aptnumber);
     $statement->execute();
-    echo "HI";
+}
+try
+{
+$statement1 = $db->prepare("SELECT complexname FROM public.complex");
+$statement1->execute();
+$match = false;
+while ($row = $statement1->fetch(PDO::FETCH_ASSOC))
+{
+    $complex1 =$row['complexname'];
+    
+    if ($complex1 === $complex) {
+        $match = true;
+    }
+    #$user_id = $row['id'];
+}
+
+if ($match === false) {
+    echo "Inserting new complex";
+    newComplex();
+
+}
+else 
+{
+    echo "Not doing nothing";
+}
+
+///This is for the apartment check
+$statement1 = $db->prepare("SELECT aptnumber FROM public.apartments");
+$statement1->execute();
+$match = false;
+while ($row = $statement1->fetch(PDO::FETCH_ASSOC))
+{
+    $complex1 =$row['complexname'];
+    
+    if ($complex1 === $complex) {
+        $match = true;
+        $complexid = $row['compiid'];
+
+    }
+    #$user_id = $row['id'];
+}
+
+if ($match === false) {
+    echo "Inserting new complex";
+    newApartment();
+
+}
+else 
+{
+    echo "Not doing nothing";
+}
+
+    
+
+    
     //while ($row = $statement->fetch(PDO::FETCH_ASSOC))
     //{
        // $aptid =$row['aptid'];
@@ -72,16 +109,16 @@ try
 
 	$statement->execute();
 
-	// get the new id
-	#$scriptureId = $db->lastInsertId("scripture_id_seq");
+	// get the new id for complex apt
+	$complexId = $db->lastInsertId("complex_id_seq");
 
 	// Now go through each topic id in the list from the user's checkboxes
-	// foreach ($topicIds as $topicId)
+	 //foreach ($topicIds as $topicId)
 	// {
 	// 	echo "ScriptureId: $scriptureId, topicId: $topicId";
 
 	// 	// Again, first prepare the statement
-	// 	$statement = $db->prepare('INSERT INTO scripture_topic(scriptureId, topicId) VALUES(:scriptureId, :topicId)');
+	$statement = $db->prepare('INSERT INTO complex_apt(compid, aptid) VALUES(:scriptureId, :aptid)');
 
 	// 	// Then, bind the values
 	// 	$statement->bindValue(':scriptureId', $scriptureId);
