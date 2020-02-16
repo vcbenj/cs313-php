@@ -4,9 +4,9 @@
 // get the data from the POST
 $username = $_GET['username'];
 $password = $_GET['password'];
-$verse = $_GET['Complex'];
+$complex = $_GET['Complex'];
 $aptnumber = $_GET['aptnumber'];
-$topicIds = $_GET['chkTopics'];
+#$topicIds = $_GET['chkTopics'];
 
 // For debugging purposes, you might include some echo statements like this
 // and then not automatically redirect until you have everything working.
@@ -24,7 +24,6 @@ $db = get_db();
 
 try
 {
-	// Add the Scripture
     $query1 = "SELECT aptid, aptnumber FROM public.apartments WHERE aptNumber = :aptnumber";
     $statement = $db->prepare($query1);
 
