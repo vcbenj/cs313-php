@@ -24,7 +24,7 @@ $db = get_db();
 echo "HI";
 try
 {
-    $query = 'INSERT INTO public.complex(complexName) VALUES(:complexName)';
+    $query = 'INSERT INTO public.complex(complexName) VALUES(:complex)';
 	$statement = $db->prepare($query);
     
 	$statement->bindValue(':complex', $complex);
