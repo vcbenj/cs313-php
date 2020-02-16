@@ -49,7 +49,7 @@ try
 	// including sanitizing the input with regard to sql commands.
 	$statement->bindValue(':username', $username);
 	$statement->bindValue(':password', $password);
-	#$statement->bindValue(':verse', $verse);
+	$statement->bindValue(':aptid', $aptid);
 	#$statement->bindValue(':content', $content);
 
 	$statement->execute();
