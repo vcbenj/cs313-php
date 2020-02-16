@@ -21,7 +21,7 @@ $aptnumber = $_GET['aptnumber'];
 
 require("db.php");
 $db = get_db();
-
+echo "HI";
 try
 {
     $query1 = "SELECT aptid, aptnumber FROM public.apartments WHERE aptNumber = :aptnumber";
