@@ -5,7 +5,7 @@
 $username = $_GET['username'];
 $password = $_GET['password'];
 $verse = $_GET['Complex'];
-$content = $_GET['AptNumber'];
+$aptnumber = $_GET['aptnumber'];
 $topicIds = $_GET['chkTopics'];
 
 // For debugging purposes, you might include some echo statements like this
@@ -25,7 +25,7 @@ $db = get_db();
 try
 {
 	// Add the Scripture
-    $statement1 = $db->prepare("SELECT aptid, aptnumber FROM public.apartments");
+    $statement1 = $db->prepare("SELECT aptid, aptnumber FROM public.apartments WHERE aptNumber = :aptnumber");
     $statement1->execute();
     $match = false;
     while ($row = $statement1->fetch(PDO::FETCH_ASSOC))
@@ -37,7 +37,7 @@ try
     // }
     // $user_id = $row['id'];
 	// We do this by preparing the query with placeholder values
-	$query = 'INSERT INTO public.users(username, password) VALUES(:username, :password)';
+	$query = 'INSERT INTO public.users(username, password, aptid) VALUES(:username, :password, :aptid)';
 	$statement = $db->prepare($query);
     
     
