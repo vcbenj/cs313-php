@@ -32,6 +32,8 @@ try
     while ($row = $statement->fetch(PDO::FETCH_ASSOC))
     {
         $aptid =$row['aptid'];
+        echo "HI";
+        echo 'RIGHT HERE     :' . $aptid;
     
     // if ($username === $user_id) {
     //     $match = true;
@@ -81,7 +83,7 @@ catch (Exception $ex)
 }
 
 // finally, redirect them to a new page to actually show the topics
-header("Location: Checklist.php");
+//header("Location: Checklist.php");
 
 die(); // we always include a die after redirects. In this case, there would be no
        // harm if the user got the rest of the page, because there is nothing else
