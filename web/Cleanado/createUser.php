@@ -26,10 +26,10 @@ try
 {
 	// Add the Scripture
     $query1 = "SELECT aptid, aptnumber FROM public.apartments WHERE aptNumber = :aptnumber";
-    $statement1 = $db->prepare($query1);
+    $statement = $db->prepare($query1);
 
-    $statement1->bindValue(':aptnumber', $aptnumber);
-    $match = false;
+    $statement->bindValue(':aptnumber', $aptnumber);
+    $statement->execute();
     while ($row = $statement1->fetch(PDO::FETCH_ASSOC))
     {
         $aptid =$row['aptid'];
