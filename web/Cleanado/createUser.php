@@ -25,22 +25,23 @@ $db = get_db();
 try
 {
 	// Add the Scripture
-
-	// We do this by preparing the query with placeholder values
-	$query = 'INSERT INTO public.users(username, password, aptid) VALUES(:username, :password)';
-	$statement = $db->prepare($query);
-    
-    $statement1 = $db->prepare("SELECT id, aptNumber, password FROM public.apartments");
+    $statement1 = $db->prepare("SELECT aptid, aptnumber, password FROM public.apartments");
     $statement1->execute();
     $match = false;
     while ($row = $statement1->fetch(PDO::FETCH_ASSOC))
     {
-        $username =$row['username'];
+        $username =$row['aptnumber'];
     
     if ($username === $user_id) {
         $match = true;
     }
     $user_id = $row['id'];
+	// We do this by preparing the query with placeholder values
+	$query = 'INSERT INTO public.users(username, password) VALUES(:username, :password)';
+	$statement = $db->prepare($query);
+    
+    
+    
 
 
 	// Now we bind the values to the placeholders. This does some nice things
