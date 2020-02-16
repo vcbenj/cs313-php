@@ -20,7 +20,7 @@ while ($row = $statement1->fetch(PDO::FETCH_ASSOC))
 
 if ($match === false) {
     $_SESSION['error'] = 'error';
-    header ("location: LoginView1.php");
+    #header ("location: LoginView1.php");
 
 }
 

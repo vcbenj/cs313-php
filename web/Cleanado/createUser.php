@@ -2,7 +2,7 @@
 
 
 // get the data from the POST
-$book = $_GET['username'];
+$username = $_GET['username'];
 $password = $_GET['password'];
 $verse = $_GET['Complex'];
 $content = $_GET['AptNumber'];
@@ -30,12 +30,12 @@ try
     $match = false;
     while ($row = $statement1->fetch(PDO::FETCH_ASSOC))
     {
-        $username =$row['aptnumber'];
+        $aptid =$row['aptid'];
     
-    if ($username === $user_id) {
-        $match = true;
-    }
-    $user_id = $row['id'];
+    // if ($username === $user_id) {
+    //     $match = true;
+    // }
+    // $user_id = $row['id'];
 	// We do this by preparing the query with placeholder values
 	$query = 'INSERT INTO public.users(username, password) VALUES(:username, :password)';
 	$statement = $db->prepare($query);
