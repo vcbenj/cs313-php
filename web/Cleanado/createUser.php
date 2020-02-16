@@ -4,7 +4,7 @@
 // get the data from the POST
 $username = $_GET['username'];
 $password = $_GET['password'];
-$complex = $_GET['Complex'];
+$complex = $_GET['complex'];
 $aptnumber = $_GET['aptnumber'];
 #$topicIds = $_GET['chkTopics'];
 
@@ -24,19 +24,32 @@ $db = get_db();
 echo "HI";
 try
 {
-    echo "HI";
-    $query1 = "SELECT aptid, aptnumber FROM public.apartments WHERE aptnumber = :aptnumber";
-    echo "HI";
-    $statement = $db->prepare($query1);
+    $query = 'INSERT INTO public.complex(complexName) VALUES(:complexName)';
+	$statement = $db->prepare($query);
+    
+	$statement->bindValue(':complex', $complex);
+    $statement->execute();
 
-    $statement->bindValue(':aptnumber', $aptnumber);
+    $query = 'INSERT INTO public.apartments(aptnumber) VALUES(:aptnumber)';
+	$statement = $db->prepare($query);
+    
+	$statement->bindValue(':aptnumber', $aptnumber);
+	//$statement->bindValue(':password', $password);
+	//$statement->bindValue(':aptid', $aptid);
+    //echo "HI";
+    //$query1 = "SELECT aptid, aptnumber FROM public.apartments WHERE aptnumber = :aptnumber";
+    //echo "HI";
+    //$statement = $db->prepare($query1);
+
+    //$statement->bindValue(':aptnumber', $aptnumber);
     $statement->execute();
     echo "HI";
-    while ($row = $statement->fetch(PDO::FETCH_ASSOC))
-    {
-        $aptid =$row['aptid'];
-        echo "HI";
-        echo 'RIGHT HERE     :' . $aptid;
+    //while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+    //{
+       // $aptid =$row['aptid'];
+       // echo "HI";
+      //  echo 'RIGHT HERE     :' . $aptid;
+    //}
     
     // if ($username === $user_id) {
     //     $match = true;
@@ -75,7 +88,7 @@ try
 	// 	$statement->bindValue(':topicId', $topicId);
 
 	// 	$statement->execute();
-	}
+	//}
 }
 catch (Exception $ex)
 {

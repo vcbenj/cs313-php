@@ -18,7 +18,7 @@
     <br>
     <input  name='password' placeholder="Password"></input>
     <br>
-    <input  name='Complex'placeholder='Apartment Complex' ></input><br>
+    <input  name='complex'placeholder='Apartment Complex' ></input><br>
     <input  name='aptnumber'placeholder='Apartment Number' ></input><br>
    
     <br>
