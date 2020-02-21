@@ -10,23 +10,24 @@ $aptnumber = $_GET['aptnumber'];
 require("db.php");
 $db = get_db();
 echo "HI";
-
-function newComplex() {
-    $query = 'INSERT INTO public.complex(complexName) VALUES(:complex)';
-	$statement = $db->prepare($query);
+$valid = true;
+//YOU SHOULD NOT BE ABLE TO CREATE A NEW COMPLEX
+// function newComplex() {
+//     $query = 'INSERT INTO public.complex(complexName) VALUES(:complex)';
+// 	$statement = $db->prepare($query);
     
-	$statement->bindValue(':complex', $complex);
-    $statement->execute();
-}
+// 	$statement->bindValue(':complex', $complex);
+//     $statement->execute();
+// }
 
-function newApartment() {
-    $query = 'INSERT INTO public.apartments(aptnumber) VALUES(:aptnumber)';
-	$statement = $db->prepare($query);
+// function newApartment() {
+//     $query = 'INSERT INTO public.apartments(aptnumber) VALUES(:aptnumber)';
+// 	$statement = $db->prepare($query);
     
-	$statement->bindValue(':aptnumber', $aptnumber);
+// 	$statement->bindValue(':aptnumber', $aptnumber);
 
-    $statement->execute();
-}
+//     $statement->execute();
+// }
 try
 {
 $statement1 = $db->prepare("SELECT complexname FROM public.complex");
@@ -43,8 +44,9 @@ while ($row = $statement1->fetch(PDO::FETCH_ASSOC))
 }
 
 if ($match === false) {
-    echo "Inserting new complex";
-    newComplex();
+    echo "THIS COMPLEX DOES NOT EXIST <br>";
+    //newComplex();
+    $valid = false;
 
 }
 else 
@@ -58,19 +60,19 @@ $statement1->execute();
 $match = false;
 while ($row = $statement1->fetch(PDO::FETCH_ASSOC))
 {
-    $complex1 =$row['complexname'];
+    $aptnumber1 =$row['aptnumber'];
     
-    if ($complex1 === $complex) {
+    if ($aptnumber === $aptnumber) {
         $match = true;
-        $complexid = $row['compiid'];
+        $aptid = $row['aptid'];
 
     }
     #$user_id = $row['id'];
 }
 
 if ($match === false) {
-    echo "Inserting new complex";
-    newApartment();
+    echo "Apartment doesn't exist";
+    $valid = false;
 
 }
 else 
@@ -81,20 +83,46 @@ else
     
 
     
-    //while ($row = $statement->fetch(PDO::FETCH_ASSOC))
-    //{
-       // $aptid =$row['aptid'];
-       // echo "HI";
-      //  echo 'RIGHT HERE     :' . $aptid;
-    //}
-    
-    // if ($username === $user_id) {
-    //     $match = true;
-    // }
-    // $user_id = $row['id'];
-	// We do this by preparing the query with placeholder values
+
 	$query = 'INSERT INTO public.users(username, password, aptid) VALUES(:username, :password, :aptid)';
 	$statement = $db->prepare($query);
+    
+    
+    
+
+
+	// Now we bind the values to the placeholders. This does some nice things
+	// including sanitizing the input with regard to sql commands.
+	$statement->bindValue(':username', $username);
+	$statement->bindValue(':password', $password);
+	$statement->bindValue(':aptid', $aptid);
+	#$statement->bindValue(':content', $content);
+
+    $statement->execute();
+    
+
+    $statement = $db->prepare("SELECT id, username FROM public.users");
+    $statement->execute();
+    $id = 0;
+    while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+    {
+        $name =$row['username'];
+        
+        if ($name === $username) {
+            $id = $row['id'];
+            echo $id . "<br>";
+        }
+        #$user_id = $row['id'];
+    }
+
+    echo $id . "<br>";
+    
+
+
+
+
+    //$query = 'INSERT INTO public.apt_users(aptid, userid) VALUES( :aptid, :userid)';
+	//$statement = $db->prepare($query);
     
     
     
@@ -110,7 +138,7 @@ else
 	$statement->execute();
 
 	// get the new id for complex apt
-	$complexId = $db->lastInsertId("complex_id_seq");
+	//$complexId = $db->lastInsertId("complex_id_seq");
 
 	// Now go through each topic id in the list from the user's checkboxes
 	 //foreach ($topicIds as $topicId)
@@ -118,7 +146,7 @@ else
 	// 	echo "ScriptureId: $scriptureId, topicId: $topicId";
 
 	// 	// Again, first prepare the statement
-	$statement = $db->prepare('INSERT INTO complex_apt(compid, aptid) VALUES(:scriptureId, :aptid)');
+	//$statement = $db->prepare('INSERT INTO complex_apt(compid, aptid) VALUES(:scriptureId, :aptid)');
 
 	// 	// Then, bind the values
 	// 	$statement->bindValue(':scriptureId', $scriptureId);
