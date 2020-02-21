@@ -83,7 +83,7 @@ else
     
 
     
-if $valid === true {
+if ($valid === true) {
 	$query = 'INSERT INTO public.users(username, password, aptid) VALUES(:username, :password, :aptid)';
 	$statement = $db->prepare($query);
     
