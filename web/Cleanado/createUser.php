@@ -64,7 +64,7 @@ while ($row = $statement1->fetch(PDO::FETCH_ASSOC))
     $aptnumber1 =$row['aptnumber'];
     echo "<br> Apartment1 number is ". $aptnumber1;
     echo "<br> Apartment number is ". $aptnumber;
-    if ($aptnumber === $aptnumber1) {
+    if ($aptnumber == $aptnumber1) {
         $match = true;
         $aptid = $row['aptid'];
         echo "<br> Apartment id is : " . $aptid . "<br>";
