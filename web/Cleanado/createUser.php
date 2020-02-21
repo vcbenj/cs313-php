@@ -58,6 +58,7 @@ else
 $statement1 = $db->prepare("SELECT aptnumber FROM public.apartments");
 $statement1->execute();
 $match = false;
+$aptid = '';
 while ($row = $statement1->fetch(PDO::FETCH_ASSOC))
 {
     $aptnumber1 =$row['aptnumber'];
