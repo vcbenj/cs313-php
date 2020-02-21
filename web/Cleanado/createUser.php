@@ -63,9 +63,10 @@ while ($row = $statement1->fetch(PDO::FETCH_ASSOC))
 {
     $aptnumber1 =$row['aptnumber'];
     
-    if ($aptnumber === $aptnumber) {
+    if ($aptnumber === $aptnumber1) {
         $match = true;
         $aptid = $row['aptid'];
+        echo "<br> Apartment id is : " . $aptid . "<br>";
 
     }
     #$user_id = $row['id'];
