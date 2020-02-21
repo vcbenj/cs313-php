@@ -55,7 +55,7 @@ else
 }
 
 ///This is for the apartment check
-$statement1 = $db->prepare("SELECT aptnumber FROM public.apartments");
+$statement1 = $db->prepare("SELECT aptnumber, aptid FROM public.apartments");
 $statement1->execute();
 $match = false;
 $aptid = '';
@@ -64,7 +64,7 @@ while ($row = $statement1->fetch(PDO::FETCH_ASSOC))
     $aptnumber1 =$row['aptnumber'];
     echo "<br> Apartment1 number is ". $aptnumber1;
     echo "<br> Apartment number is ". $aptnumber;
-    if ($aptnumber == $aptnumber1) {
+    if ($aptnumber == $aptnumber1) { //should be === but I can't get the type. 
         $match = true;
         $aptid = $row['aptid'];
         echo "<br> Apartment id is : " . $aptid . "<br>";
