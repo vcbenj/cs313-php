@@ -83,7 +83,7 @@ else
     
 
     
-
+if $valid === true {
 	$query = 'INSERT INTO public.users(username, password, aptid) VALUES(:username, :password, :aptid)';
 	$statement = $db->prepare($query);
     
@@ -153,7 +153,11 @@ else
 	// 	$statement->bindValue(':topicId', $topicId);
 
 	// 	$statement->execute();
-	//}
+    //}
+    }
+    else {
+        die();
+    }
 }
 catch (Exception $ex)
 {
