@@ -74,7 +74,7 @@ while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 	
 	$aptid = $row['aptid'];
     $userid = $row['userid'];
-    if ($user_id === $userid) {
+    if ($user_id == $userid) {
         $apt_id = $aptid;
     }
     else {
