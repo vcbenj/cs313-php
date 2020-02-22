@@ -2,7 +2,7 @@
 
 session_start();
 $_SESSION['error']= "null";
-$user_id = $_SESSION
+//$user_id = $_SESSION
 $username = $_SESSION['username'];
 $aptnumber = $_SESSION['aptNumber'];
 $complex = $_SESSION['complex'];
