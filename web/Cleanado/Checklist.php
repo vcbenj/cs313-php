@@ -64,7 +64,7 @@ if ($match === false) {
 echo "ECHO";
 //get jobs from apt
 //get jobs from user
-$statement = $db->prepare("SELECT aptid, userid FROM apt_user");
+$statement = $db->prepare("SELECT aptid, userid FROM apt_users");
 $statement->execute();
 echo "ECHO";
 
