@@ -5,29 +5,14 @@ $username = $_GET['username'];
 $password = $_GET['password'];
 $complex = $_GET['complex'];
 $aptnumber = $_GET['aptnumber'];
-#$topicIds = $_GET['chkTopics'];
+
 
 require("db.php");
 $db = get_db();
 echo "HI";
 $valid = true;
 //YOU SHOULD NOT BE ABLE TO CREATE A NEW COMPLEX
-// function newComplex() {
-//     $query = 'INSERT INTO public.complex(complexName) VALUES(:complex)';
-// 	$statement = $db->prepare($query);
-    
-// 	$statement->bindValue(':complex', $complex);
-//     $statement->execute();
-// }
 
-// function newApartment() {
-//     $query = 'INSERT INTO public.apartments(aptnumber) VALUES(:aptnumber)';
-// 	$statement = $db->prepare($query);
-    
-// 	$statement->bindValue(':aptnumber', $aptnumber);
-
-//     $statement->execute();
-// }
 try
 {
 $statement1 = $db->prepare("SELECT complexname FROM public.complex");
@@ -99,7 +84,7 @@ if ($valid === true) {
 	$statement->bindValue(':username', $username);
 	$statement->bindValue(':password', $password);
 	$statement->bindValue(':aptid', $aptid);
-	#$statement->bindValue(':content', $content);
+
 
     $statement->execute();
     
@@ -113,50 +98,24 @@ if ($valid === true) {
         
         if ($name === $username) {
             $id = $row['id'];
-            echo $id . "<br>";
+            echo "<br> user id is " . $id . "<br>";
         }
-        #$user_id = $row['id'];
+        else {
+            echo "<br> user already exists <br>"
+        }
+    
     }
 
     echo $id . "<br>";
     
+    //Todo get the relationships down and now populate user_apt and apt_compl tables. 
 
-
-
-
-    //$query = 'INSERT INTO public.apt_users(aptid, userid) VALUES( :aptid, :userid)';
-	//$statement = $db->prepare($query);
     
     
     
 
 
-	// Now we bind the values to the placeholders. This does some nice things
-	// including sanitizing the input with regard to sql commands.
-	$statement->bindValue(':username', $username);
-	$statement->bindValue(':password', $password);
-	$statement->bindValue(':aptid', $aptid);
-	#$statement->bindValue(':content', $content);
-
-	$statement->execute();
-
-	// get the new id for complex apt
-	//$complexId = $db->lastInsertId("complex_id_seq");
-
-	// Now go through each topic id in the list from the user's checkboxes
-	 //foreach ($topicIds as $topicId)
-	// {
-	// 	echo "ScriptureId: $scriptureId, topicId: $topicId";
-
-	// 	// Again, first prepare the statement
-	//$statement = $db->prepare('INSERT INTO complex_apt(compid, aptid) VALUES(:scriptureId, :aptid)');
-
-	// 	// Then, bind the values
-	// 	$statement->bindValue(':scriptureId', $scriptureId);
-	// 	$statement->bindValue(':topicId', $topicId);
-
-	// 	$statement->execute();
-    //}
+	
     }
     else {
         die();
