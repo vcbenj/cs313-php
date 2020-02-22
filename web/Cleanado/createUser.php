@@ -72,26 +72,11 @@ else
 
     
 if ($valid === true) {
-	$query = 'INSERT INTO public.users(username, password, aptid) VALUES(:username, :password, :aptid)';
-	$statement = $db->prepare($query);
-    
-    
-    
-
-
-	// Now we bind the values to the placeholders. This does some nice things
-	// including sanitizing the input with regard to sql commands.
-	$statement->bindValue(':username', $username);
-	$statement->bindValue(':password', $password);
-	$statement->bindValue(':aptid', $aptid);
-
-
-    $statement->execute();
-    
 
     $statement = $db->prepare("SELECT id, username FROM public.users");
     $statement->execute();
     $id = 0;
+    $newUser = true;
     while ($row = $statement->fetch(PDO::FETCH_ASSOC))
     {
         $name =$row['username'];
@@ -102,9 +87,33 @@ if ($valid === true) {
         }
         else {
             echo "<br> user already exists <br>";
+            $newUser = false;
         }
     
     }
+    if ($newUser === true) {
+	    $query = 'INSERT INTO public.users(username, password, aptid) VALUES(:username, :password, :aptid)';
+	    $statement = $db->prepare($query);
+	
+	    $statement->bindValue(':username', $username);
+	    $statement->bindValue(':password', $password);
+	    $statement->bindValue(':aptid', $aptid);
+
+
+        $statement->execute();
+
+        $query = 'INSERT INTO apt_users(aptid, userid) VALUES( :aptid, :id)';
+	    $statement = $db->prepare($query);
+	
+        $statement->bindValue(':aptid', $aptid);
+        $statement->bindValue(':id', $id);
+
+
+        $statement->execute();
+    }
+    
+
+ 
 
     echo $id . "<br>";
     
