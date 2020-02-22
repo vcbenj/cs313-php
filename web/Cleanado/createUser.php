@@ -82,16 +82,25 @@ if ($valid === true) {
         $name =$row['username'];
         
         if ($name === $username) {
-            $id = $row['id'];
-            echo "<br> user id is " . $id . "<br>";
-        }
-        else {
-            echo "<br> user already exists <br>";
             $newUser = false;
-        }
+            echo "User exists";
+        }//The user doesn't exist
     
     }
     if ($newUser === true) {
+        $statement = $db->prepare("SELECT id, username FROM public.users");
+        $statement->execute();
+        while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+        {
+            $name =$row['username'];
+            
+            if ($name === $username) {
+                $id = $row['id'];
+                echo "<br> user id is " . $id . "<br>";
+            }
+           
+        
+        }
 	    $query = 'INSERT INTO public.users(username, password, aptid) VALUES(:username, :password, :aptid)';
 	    $statement = $db->prepare($query);
 	
@@ -121,11 +130,11 @@ if ($valid === true) {
 
     
     
-    
+}
 
 
 	
-    }
+    
     else {
         die();
     }
