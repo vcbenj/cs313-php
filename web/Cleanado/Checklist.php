@@ -86,7 +86,7 @@ while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 }
 
 //get the apt jobs
-$statement = $db->prepare("SELECT jobid, aptid FROM from_apt");
+$statement = $db->prepare("SELECT jobid, aptid FROM from_jobs");
 $statement->execute();
 $job_id = 0;
 while ($row = $statement->fetch(PDO::FETCH_ASSOC))
