@@ -101,7 +101,7 @@ if ($valid === true) {
             echo "<br> user id is " . $id . "<br>";
         }
         else {
-            echo "<br> user already exists <br>"
+            echo "<br> user already exists <br>";
         }
     
     }
