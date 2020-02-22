@@ -84,9 +84,28 @@ while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 
 	
 }
-echo "ECHO";
-$statement = $db->prepare("SELECT jobDesc, DueDate, jobCheck FROM public.job");
-//$statement->bindValue(':apt_id', $apt_id);
+
+//get the apt jobs
+$statement = $db->prepare("SELECT jobid, aptid FROM from_apt");
+$statement->execute();
+$job_id = 0;
+while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+{
+	
+	$aptid = $row['aptid'];
+    $jobid = $row['jobid'];
+    if ($apt_id == $aptid) {
+        $job_id = $jobid;
+        echo "<br> -------------- <br>";
+    }
+    else {
+        //echo "<br>ERROR NOT FOUND<br>";
+    }
+
+	
+}
+$statement = $db->prepare("SELECT jobDesc, DueDate, jobCheck FROM public.job WHERE jobid = :job_id");
+$statement->bindValue(':job_id', $job_id);
 $statement->execute();
 echo "kdlskaECHO";
 while ($row = $statement->fetch(PDO::FETCH_ASSOC))
