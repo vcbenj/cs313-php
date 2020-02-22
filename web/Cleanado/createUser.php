@@ -88,12 +88,21 @@ if ($valid === true) {
     
     }
     if ($newUser === true) {
+        $query = 'INSERT INTO public.users(username, password, aptid) VALUES(:username, :password, :aptid)';
+	    $statement = $db->prepare($query);
+	
+	    $statement->bindValue(':username', $username);
+	    $statement->bindValue(':password', $password);
+	    $statement->bindValue(':aptid', $aptid);
+
+
+        $statement->execute();
         $statement = $db->prepare("SELECT id, username FROM public.users");
         $statement->execute();
         while ($row = $statement->fetch(PDO::FETCH_ASSOC))
         {
             $name =$row['username'];
-            
+            echo "<br> name is : " . $name . "<br> and username is " . $username;
             if ($name == $username) {
                 $id = $row['id'];
                 echo "<br> user id is " . $id . "<br>";
@@ -104,15 +113,7 @@ if ($valid === true) {
            
         
         }
-	    $query = 'INSERT INTO public.users(username, password, aptid) VALUES(:username, :password, :aptid)';
-	    $statement = $db->prepare($query);
-	
-	    $statement->bindValue(':username', $username);
-	    $statement->bindValue(':password', $password);
-	    $statement->bindValue(':aptid', $aptid);
-
-
-        $statement->execute();
+	    
 
         $query = 'INSERT INTO apt_users(aptid, userid) VALUES( :aptid, :id)';
 	    $statement = $db->prepare($query);
