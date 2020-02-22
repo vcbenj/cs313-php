@@ -76,7 +76,7 @@ while ($row = $statement->fetch(PDO::FETCH_ASSOC))
     $userid = $row['userid'];
     if ($user_id == $userid) {
         $apt_id = $aptid;
-        echo "<br> -------------- <br>"
+        echo "<br> -------------- <br>";
     }
     else {
         echo "<br>ERROR NOT FOUND<br>";
