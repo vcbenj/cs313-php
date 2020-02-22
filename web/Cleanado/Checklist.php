@@ -61,6 +61,7 @@ if ($match === false) {
 
 <?php
 //get apt id
+echo "ECHO";
 //get jobs from apt
 //get jobs from user
 $statement = $db->prepare("SELECT aptid, userid FROM apt_user");
