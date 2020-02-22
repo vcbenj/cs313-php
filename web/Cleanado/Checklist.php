@@ -2,25 +2,35 @@
 
 session_start();
 $_SESSION['error']= "null";
+$user_id = $_SESSION
+$username = $_SESSION['username'];
+$aptnumber = $_SESSION['aptNumber'];
+$complex = $_SESSION['complex'];
+//$id = $_SESSION['userid'];
+//$aptid = $_SESSION['aptid'];
 require "db.php";
 $db = get_db();
-$user_id = $_GET["username"];
+$user_name = $_GET["username"];
+$password = $_GET["password"];
+//$aptnumber = $_GET['aptnumber']
 $statement1 = $db->prepare("SELECT id, username, password FROM public.users");
 $statement1->execute();
 $match = false;
 while ($row = $statement1->fetch(PDO::FETCH_ASSOC))
 {
-    $username =$row['username'];
+    $username1 =$row['username'];
+    $password1 = $row['password'];
     
-    if ($username === $user_id) {
+    if ($username1 === $user_name and $password === $password1) {
         $match = true;
+        $user_id = $row['id'];
     }
-    $user_id = $row['id'];
+    
 }
 
 if ($match === false) {
     $_SESSION['error'] = 'error';
-    #header ("location: LoginView1.php");
+    header ("location: LoginView1.php");
 
 }
 
@@ -50,9 +60,23 @@ if ($match === false) {
 
 
 <?php
+//get apt id
+//get jobs from apt
+//get jobs from user
+$statement = $db->prepare("SELECT aptid, userid FROM apt_user");
+$statement->execute();
+$apt_id = 0;
+while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+{
+	
+	$aptid = $row['aptid'];
+    $userid = $row['userid'];
+    if ($user_id === $userid) {
+        $apt_id = $aptid;
+    }
+	
+}
 
-#$str = "SELECT jobDesc, DueDate, jobCheck FROM public.job WHERE id=". $user_id;
-echo $str;
 $statement = $db->prepare("SELECT jobDesc, DueDate, jobCheck FROM public.job");
 $statement->execute();
 
