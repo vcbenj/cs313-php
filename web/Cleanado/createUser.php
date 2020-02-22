@@ -94,9 +94,12 @@ if ($valid === true) {
         {
             $name =$row['username'];
             
-            if ($name === $username) {
+            if ($name == $username) {
                 $id = $row['id'];
                 echo "<br> user id is " . $id . "<br>";
+            }
+            else {
+                echo "Didn't work<br>";
             }
            
         
