@@ -65,6 +65,8 @@ if ($match === false) {
 //get jobs from user
 $statement = $db->prepare("SELECT aptid, userid FROM apt_user");
 $statement->execute();
+echo "ECHO";
+
 $apt_id = 0;
 while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 {
@@ -74,12 +76,14 @@ while ($row = $statement->fetch(PDO::FETCH_ASSOC))
     if ($user_id === $userid) {
         $apt_id = $aptid;
     }
+
+    echo "ECHO";
 	
 }
-
+echo "ECHO";
 $statement = $db->prepare("SELECT jobDesc, DueDate, jobCheck FROM public.job");
 $statement->execute();
-
+echo "ECHO";
 while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 {
 	
