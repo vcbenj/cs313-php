@@ -104,7 +104,7 @@ while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 
 	
 }
-$statement = $db->prepare("SELECT jobDesc, DueDate, jobCheck FROM public.job WHERE jobid = :job_id");
+$statement = $db->prepare("SELECT jobDesc, DueDate, jobCheck FROM public.job WHERE aptid = :apt_id");
 $statement->bindValue(':job_id', $job_id);
 $statement->execute();
 echo "kdlskaECHO";
