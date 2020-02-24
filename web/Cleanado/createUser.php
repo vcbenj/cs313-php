@@ -126,6 +126,7 @@ if ($valid === true) {
     $_SESSION['aptNumber']= $aptnumber;
     $_SESSION['complex']= $complex;
     $_SESSION['userid']= $id;
+    $_SESSION['password'] = $password;
     $_SESSION['aptid']= $aptid;
     echo $id . "<br>";
     

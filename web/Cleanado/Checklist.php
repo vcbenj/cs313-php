@@ -30,6 +30,12 @@ while ($row = $statement1->fetch(PDO::FETCH_ASSOC))
     if ($username1 === $user_name and $password === $password1) {
         $match = true;
         $user_id = $row['id'];
+        $_SESSION['username'] = $user_name;
+        $_SESSION['password'] = $password;
+    }
+    elseif ($_SESSION['username'] == $username1 and $_SESSION['password'] == $password1) {
+        $match = true;
+        $user_id = $row['id'];
     }
     
 }
