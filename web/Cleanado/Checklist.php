@@ -6,6 +6,12 @@ $_SESSION['error']= "null";
 $username = $_SESSION['username'];
 $aptnumber = $_SESSION['aptNumber'];
 $complex = $_SESSION['complex'];
+$jobs = $_GET['jobs'];
+if (jobs !== NULL) {
+    foreach ($i as $i){ 
+        echo $i."<br />";
+    }
+}
 //$id = $_SESSION['userid'];
 //$aptid = $_SESSION['aptid'];
 require "db.php";
@@ -46,14 +52,13 @@ if ($match === false) {
 </head>
 
 <body>
-    <form>
+    <form action = "Checklist.php" method = "GET">>
         <div id="signUp">
     <img src="Cleanado_name_and_logo.png" alt="Cleanado Logo">
     <br>
     <h1> Your Checklist</h1>
     
-</div>
-</form>
+
 
 
 
@@ -117,10 +122,10 @@ while ($row = $statement->fetch(PDO::FETCH_ASSOC))
    // if 
 	
     if ($jobC === false) {
-        echo "<input type='checkbox'> " . $jobD . "</input>";
+        echo "<input type='checkbox' name='jobs[]'> " . $jobD ."  DUE DATE:". $duedate . "</input>";
     }
     else {
-        echo "<input type='checkbox'checked> " . $jobD . $duedate . "</input>";
+        echo "<input type='checkbox'checked> name='jobs[]' " . $jobD ."  DUE DATE:". $duedate . "</input>";
     }
     echo "<p><strong> $jobD $duedate $jobC </strong> </p><br>";
     
@@ -129,5 +134,7 @@ while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 
 ?>
 </body>
-
+</div>
+<input type="submit" value="Submit"></button>
+</form>
 </html>
