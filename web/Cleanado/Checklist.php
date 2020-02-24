@@ -8,7 +8,8 @@ $aptnumber = $_SESSION['aptNumber'];
 $complex = $_SESSION['complex'];
 $jobs = $_GET['jobs'];
 if (jobs !== NULL) {
-    foreach ($i as $i){ 
+    foreach ($jobs as $i){ 
+        echo "WE ARE ALIVE";
         echo $i."<br />";
     }
 }
