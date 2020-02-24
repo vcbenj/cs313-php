@@ -115,12 +115,13 @@ while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 
 	
 }
-$statement = $db->prepare("SELECT jobDesc, DueDate, jobCheck FROM public.job WHERE aptid = :apt_id");
+$statement = $db->prepare("SELECT jobid, jobDesc, DueDate, jobCheck FROM public.job WHERE aptid = :apt_id");
 $statement->bindValue(':apt_id', $apt_id);
 $statement->execute();
 echo "kdlskaECHO";
 while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 {
+    $jobid = row['jobid'];
 	
 	$jobD = $row['jobdesc'];
 	$duedate = $row['duedate'];
@@ -128,10 +129,10 @@ while ($row = $statement->fetch(PDO::FETCH_ASSOC))
    // if 
 	
     if ($jobC === false) {
-        echo "<input type='checkbox' name='jobs[]'> " . $jobD ."  DUE DATE:". $duedate . "</input>";
+        echo "<input type='checkbox' name='jobs[]' value='". $job_id. "'>" . $jobD ."  DUE DATE:". $duedate . "</input>";
     }
     else {
-        echo "<input type='checkbox'checked name='jobs[]'>  " . $jobD ."  DUE DATE:". $duedate . "</input>";
+        echo "<input type='checkbox'checked name='jobs[]' value='". $job_id. "'>" . $jobD ."  DUE DATE:". $duedate . "</input>";
     }
     echo "<p><strong> $jobD $duedate $jobC </strong> </p><br>";
     
