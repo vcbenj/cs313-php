@@ -9,8 +9,8 @@ $complex = $_SESSION['complex'];
 $jobs = $_GET['jobs'];
 
 foreach ($jobs as $i){ 
-    echo "WE ARE ALIVE";
-    echo $i."<br />";
+    echo "WE ARE ALIVE <br>";
+    echo $i."  <-<br />";
 }
 //$id = $_SESSION['userid'];
 //$aptid = $_SESSION['aptid'];
