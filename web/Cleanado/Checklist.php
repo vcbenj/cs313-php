@@ -70,7 +70,7 @@ if ($match === false) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>repl.it</title>
+    <title>Cleanado</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 
@@ -80,21 +80,12 @@ if ($match === false) {
     <img src="Cleanado_name_and_logo.png" alt="Cleanado Logo">
     <br>
     <h1> Your Checklist</h1>
-    
-
-
-
-
 
 
 <?php
-//get apt id
 
-//get jobs from apt
-//get jobs from user
 $statement = $db->prepare("SELECT aptid, userid FROM apt_users");
 $statement->execute();
-echo "ECHO";
 
 $apt_id = 0;
 while ($row = $statement->fetch(PDO::FETCH_ASSOC))
@@ -123,16 +114,11 @@ while ($row = $statement->fetch(PDO::FETCH_ASSOC))
     if ($apt_id == $aptid) {
         $job_id = $jobid;
     }
-    else {
-        //echo "<br>ERROR NOT FOUND<br>";
-    }
-
-	
+  	
 }
 $statement = $db->prepare("SELECT jobid, jobDesc, DueDate, jobCheck FROM public.job WHERE aptid = :apt_id");
 $statement->bindValue(':apt_id', $apt_id);
 $statement->execute();
-echo "kdlskaECHO";
 while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 {
     $jobid = $row['jobid'];
@@ -140,17 +126,14 @@ while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 	$jobD = $row['jobdesc'];
 	$duedate = $row['duedate'];
     $jobC = $row['jobcheck'];
-   // if 
 	
     if ($jobC === false) {
         echo "<input type='checkbox' name='jobs[]' value='". $jobid. "'>" . $jobD ."  DUE DATE:". $duedate . "</input>";
-        echo "   <br>" . $jobid;
     }
     else {
         echo "<input type='checkbox'checked name='jobs[]' value='". $jobid . "'>" . $jobD ."  DUE DATE:". $duedate . "</input>";
-        echo "   <br>" . $jobid;
     }
-    echo "<p><strong> $jobD $duedate $jobC </strong> </p><br>";
+    
     
 }
 
