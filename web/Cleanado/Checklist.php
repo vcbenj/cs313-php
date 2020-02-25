@@ -121,7 +121,7 @@ $statement->execute();
 echo "kdlskaECHO";
 while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 {
-    $jobid = row['jobid'];
+    $jobid = $row['jobid'];
 	
 	$jobD = $row['jobdesc'];
 	$duedate = $row['duedate'];
