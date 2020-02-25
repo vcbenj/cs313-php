@@ -9,8 +9,8 @@ $complex = $_SESSION['complex'];
 $jobs = $_GET['jobs'];
 
 foreach ($jobs as $i){ 
-    echo "WE ARE ALIVE <br>";
-    echo $i."  <-<br>";
+    $statement1 = $db->prepare("UPDATE job SET jobCheck = TRUE WHERE jobid = $i;");
+    $statement1->execute();
 }
 //$id = $_SESSION['userid'];
 //$aptid = $_SESSION['aptid'];
@@ -87,10 +87,8 @@ while ($row = $statement->fetch(PDO::FETCH_ASSOC))
     $userid = $row['userid'];
     if ($user_id == $userid) {
         $apt_id = $aptid;
-        echo "<br> -------------- <br>";
     }
     else {
-        echo "<br>ERROR NOT FOUND<br>";
     }
 
 	
@@ -107,7 +105,6 @@ while ($row = $statement->fetch(PDO::FETCH_ASSOC))
     $jobid = $row['jobid'];
     if ($apt_id == $aptid) {
         $job_id = $jobid;
-        echo "<br> -------------- <br>";
     }
     else {
         //echo "<br>ERROR NOT FOUND<br>";
