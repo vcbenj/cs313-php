@@ -1,6 +1,8 @@
 <?php
 
 session_start();
+require "db.php";
+$db = get_db();
 $_SESSION['error']= "null";
 //$user_id = $_SESSION
 if (isset($_SESSION['username']))
@@ -30,8 +32,7 @@ if (isset($_GET['jobs']))
 
 //$id = $_SESSION['userid'];
 //$aptid = $_SESSION['aptid'];
-require "db.php";
-$db = get_db();
+
 $user_name = $_GET["username"];
 $password = $_GET["password"];
 //$aptnumber = $_GET['aptnumber']
