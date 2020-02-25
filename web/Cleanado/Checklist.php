@@ -3,15 +3,31 @@
 session_start();
 $_SESSION['error']= "null";
 //$user_id = $_SESSION
-$username = $_SESSION['username'];
-$aptnumber = $_SESSION['aptNumber'];
-$complex = $_SESSION['complex'];
-$jobs = $_GET['jobs'];
-
-foreach ($jobs as $i){ 
-    $statement1 = $db->prepare("UPDATE job SET jobCheck = TRUE WHERE jobid = $i;");
-    $statement1->execute();
+if (isset($_SESSION['username']))
+{
+	$username = $_SESSION['username'];
 }
+if (isset($_SESSION['aptNumber']))
+{
+	$aptnumber = $_SESSION['aptNumber'];
+}
+if (isset($_SESSION['complex']))
+{
+	$complex = $_SESSION['complex'];;
+}
+
+if (isset($_GET['jobs']))
+{
+    $jobs = $_GET['jobs'];
+    foreach ($jobs as $i){ 
+        $statement1 = $db->prepare("UPDATE job SET jobCheck = TRUE WHERE jobid = $i;");
+        $statement1->execute();
+    }
+}
+
+
+
+
 //$id = $_SESSION['userid'];
 //$aptid = $_SESSION['aptid'];
 require "db.php";
