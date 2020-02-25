@@ -126,13 +126,14 @@ while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 	$jobD = $row['jobdesc'];
 	$duedate = $row['duedate'];
     $jobC = $row['jobcheck'];
-	
+	echo "<ul>"
     if ($jobC === false) {
-        echo "<input type='checkbox' name='jobs[]' value='". $jobid. "'>" . $jobD ."  DUE DATE:". $duedate . "</input>";
+        echo "<li><input type='checkbox' name='jobs[]' value='". $jobid. "'>" . $jobD ."  DUE DATE:". $duedate . "</input></li>";
     }
     else {
-        echo "<input type='checkbox'checked name='jobs[]' value='". $jobid . "'>" . $jobD ."  DUE DATE:". $duedate . "</input>";
+        echo "<li><input type='checkbox'checked name='jobs[]' value='". $jobid . "'>" . $jobD ."  DUE DATE:". $duedate . "</input></li>";
     }
+    echo "</ul>"
     
     
 }
