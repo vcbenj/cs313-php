@@ -10,7 +10,7 @@ $jobs = $_GET['jobs'];
 
 foreach ($jobs as $i){ 
     echo "WE ARE ALIVE <br>";
-    echo $i."  <-<br />";
+    echo $i."  <-<br>";
 }
 //$id = $_SESSION['userid'];
 //$aptid = $_SESSION['aptid'];
@@ -130,9 +130,11 @@ while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 	
     if ($jobC === false) {
         echo "<input type='checkbox' name='jobs[]' value='". $jobid. "'>" . $jobD ."  DUE DATE:". $duedate . "</input>";
+        echo "   <br>" . $jobid;
     }
     else {
         echo "<input type='checkbox'checked name='jobs[]' value='". $jobid . "'>" . $jobD ."  DUE DATE:". $duedate . "</input>";
+        echo "   <br>" . $jobid;
     }
     echo "<p><strong> $jobD $duedate $jobC </strong> </p><br>";
     
